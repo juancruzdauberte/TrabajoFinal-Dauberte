@@ -1,0 +1,26 @@
+@import "../variables";
+
+#main{
+    .main__img{
+        img{
+            width: 100%;
+            object-fit: cover;
+            height: 500px;
+         }
+}
+
+    .main__nav-pages{
+            a{
+                 color: #6f5e4e;
+             }
+    }
+}
+
+
+h2{
+    text-align: center;
+    color: $color-h2;
+    font-size: 30px;
+    font-weight: 700;
+}
+

@@ -27,6 +27,7 @@
 }
 #header #nav ul li a {
   color: black;
+  font-size: 0.9em;
 }
 #header #nav ul li a:hover {
   color: rgb(175, 155, 155);
@@ -217,11 +218,60 @@
   padding: 20px;
 }
 #footer .footer__copy p {
-  font-weight: 600;
+  font-weight: 350;
+  font-size: 0.95em;
 }
 #footer .footer__copy a {
   color: rgb(0, 4, 255);
   margin-left: 3px;
+}
+
+#main .main__img img {
+  width: 100%;
+  object-fit: cover;
+  height: 500px;
+}
+#main .main__nav-pages a {
+  color: #6f5e4e;
+}
+
+h2 {
+  text-align: center;
+  color: #7c5e45;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+#main .main__categorias .main__categorias-bg {
+  background-color: rgba(169, 171, 174, 0.064);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main .main__categorias .main__categorias-bg h6 {
+  font-size: 1.5em;
+  text-align: center;
+}
+#main .main__categorias .main__categorias-bg ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 20px;
+}
+#main .main__categorias .main__categorias-bg ul li {
+  list-style: none;
+  display: flex;
+}
+#main .main__categorias .main__categorias-bg ul li button {
+  border: none;
+}
+#main .main__categorias .main__video {
+  background-color: rgba(169, 171, 174, 0.064);
+  padding: 40px;
+}
+#main .main__categorias .main__video .main__video-bg video {
+  height: 150px;
 }
 
 * {
