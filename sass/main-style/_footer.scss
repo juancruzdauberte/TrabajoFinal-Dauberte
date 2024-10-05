@@ -1,0 +1,49 @@
+@import "../variables";
+
+
+#footer{
+    background-color: $bg-header-footer;
+    h4{
+        text-align: center;
+        color:#7c5e45;
+        font-weight: 700;
+        padding: 20px;
+    }
+
+    .redes{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .footer__nav{
+        li{
+            font-size: 0.9em;
+            a{
+                color: black;
+            }
+            a:hover{
+                color: $li-hover;
+            }
+        }
+    }
+
+    .footer__copy{
+        text-align: center;
+        background-color: #E6D1BE;
+        padding: 20px;
+
+        p{
+            font-weight: 600;
+        }
+
+        a{
+            color: rgb(0, 4, 255);
+             margin-left: 3px;
+        }
+    }
+}
+
+
+
+

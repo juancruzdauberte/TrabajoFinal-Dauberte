@@ -1,0 +1,21 @@
+@import "main-style/header";
+@import "main-style/footer";
+@import "main-style/main";
+@import "style-pages/inicio";
+@import "style-pages/contacto";
+@import "style-pages/productos";
+@import "style-pages/quienesSomos";
+@import "style-pages/imagenes";
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+
+}
+
+main{
+    min-height: 100vh;
+}
