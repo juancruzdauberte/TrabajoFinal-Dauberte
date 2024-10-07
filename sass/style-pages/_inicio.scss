@@ -25,20 +25,18 @@
                     } 
                 }
             }
-        }
-    
-            .main__video{
-                background-color: rgba(169, 171, 174, 0.064);
-                padding: 40px;
-                .main__video-bg{
-                        video{
-                            height: 150px;
-                        }
-                    }
-            }     
+        }   
             }
             
-    
+            .main__video{             
+                .main__video-bg{
+                    border-radius: 20px;                    
+                    video{
+                        height: 900px;
+                        width: 400px;
+                }
+                }
+            }  
     
     }
 
