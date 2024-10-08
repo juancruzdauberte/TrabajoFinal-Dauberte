@@ -1,30 +1,43 @@
 @import "../variables";
 
+.box-models-productos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #main{
-    
-}
+    .main__aside-productos{
+        @extend .box-models-productos;
+        .main__aside{
+            .main__aside-bg{
+                background-color: rgba(111, 115, 115, 0.284);
+                padding: 20px 0px 20px 0px;
+                
+                h6{
+                    text-align: center;
+                    font-size: 1.2em;
+                }
 
-@media (max-width: 640px) {
+                aside{
+                    ul{
+                        list-style: none;
+                        gap: 10px;
 
-}
+                        li{
+                            button{
+                                padding: 5px;
+                                width: 140px; 
+                                border: none;
+                                border-radius: 5px;
+                            }
+                        }
+                       
+                    }
+                }
+            }
+        }
 
+    }
 
-
-@media (min-width: 641px) and (max-width: 720px){
-    
-}
-
-
-@media (min-width: 721px) and (max-width: 900px){
-   
-}
-
-
-@media (min-width: 901px) and (max-width: 1280px){
-   
-}
-
-
-@media (min-width: 1281px) and (max-width: 1600px){
-   
-}
+ }

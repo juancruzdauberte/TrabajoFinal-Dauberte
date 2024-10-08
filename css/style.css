@@ -245,82 +245,167 @@ h2 {
 #main .main__categorias .main__categorias-bg {
   background-color: rgba(169, 171, 174, 0.064);
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 #main .main__categorias .main__categorias-bg h6 {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: center;
 }
 #main .main__categorias .main__categorias-bg ul {
-  display: flex;
   justify-content: center;
   gap: 30px;
   padding-top: 20px;
 }
 #main .main__categorias .main__categorias-bg ul li {
   list-style: none;
-  display: flex;
+  font-size: 0.6em;
 }
 #main .main__categorias .main__categorias-bg ul li button {
   border: none;
+}
+#main .main__video {
+  padding: 40px;
 }
 #main .main__video .main__video-bg {
   border-radius: 20px;
 }
 #main .main__video .main__video-bg video {
-  height: 900px;
-  width: 400px;
+  width: 200px;
 }
 
-@media (max-width: 640px) {
-  .main__redes-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 80px;
-  }
-  .main__redes-form .main__redes h3 {
-    text-align: center;
-    font-size: 1.4em;
-    color: #704420;
-  }
-  .main__redes-form .main__redes .redes__insta-fb {
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .main__redes-form .main__redes .redes__insta-fb a {
-    text-decoration: none;
-    color: black;
+#main .main__redes-form {
+  justify-content: center;
+  gap: 80px;
+  padding: 50px 0px 100px 0px;
+}
+#main .main__redes-form .main__redes h3 {
+  text-align: center;
+  font-size: 1.4em;
+  color: #704420;
+}
+#main .main__redes-form .main__redes .redes__insta-fb {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main .main__redes-form .main__redes .redes__insta-fb a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 15px;
+}
+#main .main__redes-form .main__form {
+  padding: 50px 0px 0px 0px;
+}
+#main .main__redes-form .main__form form {
+  padding: 30px 0px 0px 40px;
+}
+#main .main__redes-form .main__form form input, #main .main__redes-form .main__form form textarea {
+  width: 90%;
+}
+#main .main__redes-form .main__form h4 {
+  text-align: center;
+  font-size: 1.4em;
+  color: #704420;
+}
+#main .main__redes-form .main__form button {
+  background-color: rgb(72, 71, 71);
+  border: none;
+}
+#main .main__redes-form .main__form button:hover {
+  background-color: rgb(114, 113, 113);
+  margin: none;
+}
+
+@media (min-width: 720px) and (max-width: 900px) {
+  #main .main__redes-form {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    padding-bottom: 15px;
+    justify-content: space-around;
   }
-  .main__redes-form .main__form {
-    padding-bottom: 50px;
+  #main .main__redes-form .main__redes {
+    padding: 50px 0px 0px 0px;
   }
-  .main__redes-form .main__form h4 {
-    text-align: center;
-    font-size: 1.4em;
-    color: #704420;
+  #main .main__redes-form .main__redes .redes__insta-fb {
+    align-items: start;
   }
-  .main__redes-form .main__form form input {
-    width: 100%;
+  #main .main__redes-form .main__form form .form input {
+    width: 300px;
   }
-  .main__redes-form .main__form button {
-    background-color: rgb(72, 71, 71);
-    border: none;
-  }
-  .main__redes-form .main__form button:hover {
-    background-color: rgb(114, 113, 113);
-    margin: none;
+  #main .main__redes-form .main__form form .form textarea {
+    width: 300px;
+    height: 200px;
   }
 }
+@media (min-width: 901px) and (max-width: 1280px) {
+  #main .main__redes-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #main .main__redes-form .main__redes {
+    padding: 50px 0px 0px 0px;
+  }
+  #main .main__redes-form .main__redes .redes__insta-fb {
+    align-items: start;
+  }
+  #main .main__redes-form .main__form form .form input {
+    width: 400px;
+  }
+  #main .main__redes-form .main__form form .form textarea {
+    width: 400px;
+    height: 200px;
+  }
+}
+@media (min-width: 1281px) and (max-width: 1600px) {
+  #main .main__redes-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 50px;
+  }
+  #main .main__redes-form .main__redes {
+    padding: 50px 0px 0px 0px;
+  }
+  #main .main__redes-form .main__redes .redes__insta-fb {
+    align-items: start;
+  }
+  #main .main__redes-form .main__form form .form input {
+    width: 400px;
+  }
+  #main .main__redes-form .main__form form .form textarea {
+    width: 400px;
+    height: 200px;
+  }
+}
+.box-models-productos, #main .main__aside-productos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main .main__aside-productos .main__aside .main__aside-bg {
+  background-color: rgba(111, 115, 115, 0.284);
+  padding: 20px 0px 20px 0px;
+}
+#main .main__aside-productos .main__aside .main__aside-bg h6 {
+  text-align: center;
+  font-size: 1.2em;
+}
+#main .main__aside-productos .main__aside .main__aside-bg aside ul {
+  list-style: none;
+  gap: 10px;
+}
+#main .main__aside-productos .main__aside .main__aside-bg aside ul li button {
+  padding: 5px;
+  width: 140px;
+  border: none;
+  border-radius: 5px;
+}
+
 * {
   padding: 0;
   margin: 0;

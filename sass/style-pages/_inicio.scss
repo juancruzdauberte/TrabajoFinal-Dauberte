@@ -3,22 +3,17 @@
         .main__categorias-bg{
             background-color: rgba(169, 171, 174, 0.064);
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-    
             h6{
-                font-size: 1.5em;
+                font-size: 1.2em;
                 text-align: center;
             }
             ul{
-                display: flex;
                 justify-content: center;
                 gap: 30px;
                 padding-top: 20px;
                 li{
                     list-style: none;
-                    display: flex;
+                    font-size: 0.6em;
                     button{
                         border: none;
     
@@ -28,15 +23,39 @@
         }   
             }
             
-            .main__video{             
+            .main__video{
+                padding: 40px;             
                 .main__video-bg{
                     border-radius: 20px;                    
                     video{
-                        height: 900px;
-                        width: 400px;
+                        width: 200px;
                 }
                 }
             }  
     
     }
 
+    @media (max-width: 640px) {
+
+    }
+    
+    
+    
+    @media (min-width: 641px) and (max-width: 720px){
+        
+    }
+    
+    
+    @media (min-width: 721px) and (max-width: 900px){
+       
+    }
+    
+    
+    @media (min-width: 901px) and (max-width: 1280px){
+       
+    }
+    
+    
+    @media (min-width: 1281px) and (max-width: 1600px){
+       
+    }

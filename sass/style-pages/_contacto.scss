@@ -2,22 +2,14 @@
 
 #main{
 
-}
-
-@mixin flex-column($display, $flex-column){
-    display: flex;
-    flex-direction: column;
-}
-
-@media (max-width: 640px) {
-
+    
     .main__redes-form{
-        display: flex;
-        flex-direction: column;
         justify-content: center;
         gap: 80px;
+        padding: 50px 0px 100px 0px;
 
         .main__redes{
+            
                 h3{
                     text-align: center;
                     font-size: 1.4em;
@@ -44,7 +36,13 @@
       
 
         .main__form{
-            padding-bottom: 50px;
+            padding: 50px 0px 0px 0px;
+            form{
+                padding: 30px 0px 0px 40px;
+                input,textarea{
+                    width: 90%;
+                }
+            }
 
             h4{
                 text-align: center;
@@ -52,11 +50,7 @@
                 color: $color-h4;
             }
 
-            form{
-                input{
-                    width: 100%;
-                }
-            }
+           
             button{
                 background-color: rgb(72, 71, 71);
                 border: none;
@@ -75,25 +69,128 @@
 }
 
 
+@media (min-width: 720px) and (max-width: 900px){
 
-@media (min-width: 641px) and (max-width: 720px){
+    #main{
+        .main__redes-form{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+          
     
-}
-
-
-@media (min-width: 721px) and (max-width: 900px){
+            .main__redes{
+                padding: 50px 0px 0px 0px;
+                   .redes__insta-fb{
+                    align-items: start;
+                   }
+            }
+          
+    
+            .main__form{
+                form{
+                    .form{
+                        input{
+                            width: 300px;
+                        }
+    
+                        textarea{
+                            width: 300px;
+                            height: 200px;
+                        }
+                    }
+                    
+                  }
+            }
+        }
+    
+    }
    
 }
 
 
 @media (min-width: 901px) and (max-width: 1280px){
-   
+
+    #main{
+        .main__redes-form{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            
+
+            .main__redes{
+                padding: 50px 0px 0px 0px;
+                   .redes__insta-fb{
+                    align-items: start;
+                   }
+            }
+          
+    
+            .main__form{
+              form{
+                .form{
+                    input{
+                        width: 400px;
+                    }
+
+                    textarea{
+                        width: 400px;
+                        height: 200px;
+                    }
+                }
+                
+              }
+            }
+        }
+    
+    }
 }
+   
+   
+
+   
+
 
 
 @media (min-width: 1281px) and (max-width: 1600px){
-   
+
+    #main{
+
+    
+        .main__redes-form{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-top: 50px;
+          
+            .main__redes{
+                padding: 50px 0px 0px 0px;
+                   .redes__insta-fb{
+                    align-items: start;
+                   }
+            }
+          
+    
+            .main__form{
+              form{
+                .form{
+                    input{
+                        width: 400px;
+                    }
+
+                    textarea{
+                        width: 400px;
+                        height: 200px;
+                    }
+                }
+                
+              }
+            }
+        }
+    
+    }
 }
+   
+
 
 
 
