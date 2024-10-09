@@ -24,6 +24,8 @@
             }
             a:hover{
                 color: $li-hover;
+                transform: translate(0px,-1.5px);
+                transition: .4s;
             }
         }
     }
