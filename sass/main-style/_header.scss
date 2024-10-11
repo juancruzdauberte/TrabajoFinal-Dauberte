@@ -69,7 +69,7 @@
         .logo{
             @include logo-carrito(display,align-items);
             img{                
-                width: 85px;
+                width: 60px;
                 
             }
        } 
@@ -77,7 +77,7 @@
        #nav{
             padding-top: 10px;
         h1{
-            font-size: 40px;
+            font-size: 32px;
             font-weight: 600;
         }
 
@@ -93,7 +93,7 @@
             @include logo-carrito(display,align-items);           
             button{
                 img{
-                    width: 30px;
+                    width: 25px;
                 }
             }
        }
