@@ -2,60 +2,160 @@
     .main__categorias{
         .main__categorias-bg{
             background-color: rgba(169, 171, 174, 0.064);
-            padding: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0px 20px 0px;
             h6{
-                font-size: 1.2em;
+                font-size: 1.2rem;
                 text-align: center;
             }
             ul{
-                justify-content: center;
-                gap: 30px;
-                padding-top: 20px;
+                display: flex;
+                justify-content: space-evenly;
+                padding: 20px 20px 0px 20px;
                 li{
                     list-style: none;
-                    font-size: 0.6em;
+                    font-size: 0.6rem;
+                   
                     button{
+                        padding: 5px 10px 5px 10px;
                         border: none;
+                        border-radius: 3px;
     
                     } 
+
+                    button:hover{
+                        color: rgb(215, 215, 215);
+                    }
                 }
             }
-        }   
-            }
+         }   
+    }
             
-            .main__video{
-                padding: 40px;             
-                .main__video-bg{
-                    border-radius: 20px;                    
-                    video{
-                        width: 200px;
-                }
-                }
-            }  
+    .main__video{
+        padding: 50px 0px 50px 0px;                     
+        video{
+            width: 200px;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+        }
+                
+    }  
     
-    }
-
-    @media (max-width: 640px) {
-
-    }
-    
-    
+}
+        
     
     @media (min-width: 641px) and (max-width: 720px){
-        
+
+        #main{
+            .main__categorias{
+                .main__categorias-bg{
+                    h6{
+                        font-size: 1.2em;
+                    }
+                    ul{
+                        padding: 20px 100px 0px 100px;
+                        li{
+                            font-size: 0.7rem;
+                            button{
+                                padding: 5px 15px 5px 15px;
+                            } 
+                        }
+                    }
+                }   
+                    }
+                    
+                    .main__video{
+                        video{
+                            width: 250px;
+                        }    
+                    }
+        }
     }
     
     
     @media (min-width: 721px) and (max-width: 900px){
+        #main{
+            .main__categorias{
+                .main__categorias-bg{
+                    h6{
+                        font-size: 1.3rem;
+                    }
+                    ul{
+                        padding: 20px 150px 0px 150px;
+                        li{
+                            font-size: 0.8rem;
+                            button{
+                                padding: 5px 15px 5px 15px;
+                            } 
+                        }
+                    }
+                }   
+                    }
+                    
+                    .main__video{                   
+                            video{
+                                width: 300px;
+                        }
+                        
+                    }
+        }
        
     }
     
     
     @media (min-width: 901px) and (max-width: 1280px){
+        #main{
+            .main__categorias{
+                .main__categorias-bg{
+                    h6{
+                        font-size: 1.4rem;
+                    }
+                    ul{
+                        padding: 20px 200px 0px 200px;
+                        li{
+                            font-size: 0.9rem;
+                            button{
+                                padding: 5px 20px 5px 20px;
+                            } 
+                        }
+                    }
+                }   
+                    }
+                    
+                    .main__video{                   
+                            video{
+                                width: 350px;
+                        }
+                    }
+        }
        
     }
     
     
     @media (min-width: 1281px) and (max-width: 1600px){
+
+        #main{
+            .main__categorias{
+                .main__categorias-bg{
+                    h6{
+                        font-size: 1.4rem;
+                    }
+                    ul{
+                        padding: 20px 370px 0px 370px;
+                        li{
+                            font-size: 1rem;
+                            button{
+                                padding: 5px 20px 5px 20px;
+                            } 
+                        }
+                    }
+                }   
+                    }
+                    
+                    .main__video{ 
+                            video{
+                                width: 350px;
+                        }
+                    }
+        }
        
     }

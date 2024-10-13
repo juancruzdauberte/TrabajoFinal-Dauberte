@@ -1,16 +1,10 @@
 @import "../variables";
 
-@mixin flex-column-center ($flex, $direction, $aling, $gap){
+@mixin flex-direction-align ($flex, $direction, $align, $gap){
     display: $flex;
     flex-direction: $direction;
-    align-items: $aling;
+    align-items: $align;
     row-gap: $gap;
-}
-
-@mixin flex-row-center{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 }
 
 @mixin productosStyle{
@@ -35,46 +29,53 @@
 
 #main{
     .main__aside-productos{ 
-        @include flex-column-center(flex, column, center, 60px);
+        @include flex-direction-align(flex, column, center, 60px);
         .main__categorias{
-           
-            .categorias{ 
+            .categorias__filtros{
                 background-color: rgba(229, 229, 229, 0.626);
-                ul{
-                    @include flex-column-center(flex, column, center, 0px);
-                    li{
-                        list-style: none;
-                        a{
-                            text-decoration: none;
-                            color: black;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 40px;
+                border-radius: 10px;
+                p{
+                    text-align: center;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    color: black;
+                }
+                .categorias{ 
+                        li{
+                            padding: 5px 0px 5px 0px;
+                            list-style: none;
+                            a{
+                                text-decoration: none;
+                                color: black;
+                            }
+                            a:hover{
+                                color: rgb(215, 215, 215)
+                            }
                         }
-                    }
+                    
                 }
             }
+            
         }
 
         .main__productos{ 
-            @include flex-column-center(flex, column, center, 100px);
-            .productos__tapices, .productos__colgantes{
+            @include flex-direction-align(flex, column, center, 100px);
+            #productos__tapices, #productos__colgantes{
                 
                 .productos__titulo{
                     @include titulos-productos();
                 }  
 
                 .productos__card{
-                    @include flex-column-center(flex, column, center, 0px);
+                    @include flex-direction-align(flex, column, center, 0px);
                     @include gap-productos(0px, 100px);
                     .producto {
                         background-color: #fff;
                         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                         max-width: 250px;   
-                        transition: transform 0.4s ease;
-                        
-                       
-            
-                        .producto:hover {
-                            transform: scale(1.10);
-                        }
+                        transition: transform 0.2s ease;
             
                         .producto__img{
                             img {
@@ -118,6 +119,10 @@
                                 background-color: #218838;
                             }
                         }
+                    }    
+            
+                    .producto:hover {
+                        transform: scale(1.05);
                     }
                 }
             }
@@ -132,22 +137,34 @@
     @media (min-width: 720px) and (max-width: 900px){
         
             .main__aside-productos{
-                @include flex-column-center(flex, row, start, 0px);
                 
-                .main__aside{
-                    min-height: 100vh;
+                    .main__categorias{
+                        .categorias__filtros{
+                            .categorias{
+                                display: flex;
+                                gap: 30px;
+                                li{
+                                    font-size: 1.3rem;
+                                }
 
-                }
+                             }
+                        }
+                        
+                    }
+                    
+                    
+
+                
 
                 .main__productos{
-                    @include flex-column-center(flex, column, center, 100px);
-                    .productos__tapices, .productos__colgantes{
+                    @include flex-direction-align(flex, column, center, 100px);
+                    #productos__tapices, #productos__colgantes{
                         
                         .productos__titulo{
                             @include titulos-productos();
                         } 
                         .productos__card{
-                            @include flex-row-center();
+                            @include flex-direction-align(flex, row, center, 0px);
                             @include productosStyle(); 
                             @include gap-productos(60px, 100px);
                         }
@@ -165,21 +182,33 @@
     
     @media (min-width: 901px) and (max-width: 1280px){
         .main__aside-productos{
-            @include flex-column-center(flex, row, start, 0px);
-            
-            .main__aside{
+            @include flex-direction-align(flex, row, start, 0px);
+            padding: 100px 0px 100px 0px;
+            .main__categorias{
                 min-height: 100vh;
+                width: 30%;
+                padding: 100px 0px 0px 30px;
+                .categorias__filtros{
+                    padding: 30px 15px 30px 15px;
+                    width: 240px;
+                    .categorias{
+                        li{
+                            font-size: 1.3rem;
+                        }
 
+                     }
+                }
+                
             }
 
             .main__productos{
-                @include flex-column-center(flex, column, center, 100px);
-                .productos__tapices, .productos__colgantes{
+                @include flex-direction-align(flex, column, center, 100px);
+                #productos__tapices, #productos__colgantes{
                     .productos__titulo{
                         @include titulos-productos();
                     } 
                     .productos__card{
-                        @include flex-row-center();
+                        @include flex-direction-align(flex, row, center, 0px);
                         @include productosStyle(); 
                         @include gap-productos(60px, 100px);
 
@@ -194,26 +223,37 @@
     
     
     @media (min-width: 1281px) and (max-width: 1600px){
-
         .main__aside-productos{
-            @include flex-column-center(flex, row, start, 0px);
-            
-            .main__aside{
+            @include flex-direction-align(flex, row, start, 0px);
+            padding: 100px 0px 100px 0px;
+            .main__categorias{
                 min-height: 100vh;
+                width: 30%;
+                padding: 100px 0px 0px 30px;
+                .categorias__filtros{
+                    padding: 30px 15px 30px 15px;
+                    width: 240px;
+                    .categorias{
+                        li{
+                            font-size: 1.3rem;
+                        }
 
+                     }
+                }
+                
             }
 
             .main__productos{
-                @include flex-column-center(flex, column, center, 100px);
-                .productos__tapices, .productos__colgantes{
-                    
+                @include flex-direction-align(flex, column, center, 100px);
+                #productos__tapices, #productos__colgantes{
                     .productos__titulo{
                         @include titulos-productos();
                     } 
                     .productos__card{
-                        @include flex-row-center();
+                        @include flex-direction-align(flex, row, center, 0px);
                         @include productosStyle(); 
                         @include gap-productos(60px, 100px);
+
                     }
                     
                 }
