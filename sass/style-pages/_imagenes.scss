@@ -16,11 +16,14 @@
 
 #main{
 
-    h3{
-        font-size: 1rem;
-        text-align: center;
-        color: rgb(187, 137, 76)
+    .subtitulo__imagenes{
+        h3{
+            font-size: 1rem;
+            text-align: center;
+            color: $color-subtitulos;
+        }
     }
+
    .main__imagenes{
         @include flex-direction-align();
         padding: 50px 0px 50px 0px;
@@ -39,11 +42,12 @@
 @media (min-width: 641px) and (max-width: 720px){
 
     #main{
-        h3{
-            font-size: 1.3rem;
-            text-align: center;
-            color: rgb(187, 137, 76)
+        .subtitulo__imagenes{
+            h3{
+                font-size: 1.3rem;
+            }
         }
+
        .main__imagenes{
         display: flex;
         gap: 100px;
@@ -64,11 +68,12 @@
 
 @media (min-width: 721px) and (max-width: 900px){
     #main{
-        h3{
-            font-size: 1.3rem;
-            text-align: center;
-            color: rgb(187, 137, 76)
+        .subtitulo__imagenes{
+            h3{
+                font-size: 1.3rem;
+            }
         }
+      
        .main__imagenes{
         display: flex;
         gap: 100px;
@@ -92,10 +97,10 @@
 
 @media (min-width: 901px) and (max-width: 1280px){
     #main{
-        h3{
-            font-size: 1.4rem;
-            text-align: center;
-            color: rgb(187, 137, 76)
+        .subtitulo__imagenes{
+            h3{
+                font-size: 1.4rem;
+            }
         }
        .main__imagenes{
         display: flex;
@@ -121,13 +126,15 @@
 }
 
 
-@media (min-width: 1281px) and (max-width: 1600px){
+@media (min-width: 1281px){
     #main{
-        h3{
-            font-size: 1.5rem;
-            text-align: center;
-            color: rgb(187, 137, 76)
+
+        .subtitulo__imagenes{
+            h3{
+                font-size: 1.5rem;
+            }
         }
+
        .main__imagenes{
         padding: 100px;
         display: flex;

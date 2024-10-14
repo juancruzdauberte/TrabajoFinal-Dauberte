@@ -203,7 +203,7 @@
     }
 
 
-    @media (min-width: 1281px) and (max-width: 1600px){
+    @media (min-width: 1281px){
         .logo{
             @include logo-carrito(display,align-items);
             img{                

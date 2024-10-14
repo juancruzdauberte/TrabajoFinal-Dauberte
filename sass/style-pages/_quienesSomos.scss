@@ -1,30 +1,164 @@
 @import "../variables";
 
+@mixin flex-direction-align($display, $direction, $align, $justify){
+    display: $display;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin style-iframe-texto ($column-gap, $row-gap, $padding){
+    column-gap: $column-gap;
+    row-gap: $row-gap;
+    padding: $padding;
+}
+
+@mixin style-subtitulos($size, $p-bottom){
+    font-size: $size;
+    padding-bottom: $p-bottom;
+}
+
+
 #main{
+
+    .main__iframe-texto{
+        @include flex-direction-align(flex, column, center, center);
+        @include style-iframe-texto(0px, 80px, 0px);
+
+        .main__iframe{
+            h3{
+                color: $color-subtitulos;
+                @include style-subtitulos(1.3rem, 20px);
+            }
+            iframe{
+                width: 300px;
+                height: 250px;
+            }
+        }
+    
+        .main__texto{
+            width: 300px;
+            h4{
+                color: $color-subtitulos;
+                @include style-subtitulos(1.3rem, 20px);
+            }
+            p{
+                word-wrap: break-word;
+                white-space: normal;
+            }
+        }
+        
+    }
     
 }
-
-@media (max-width: 640px) {
-
-}
-
 
 
 @media (min-width: 641px) and (max-width: 720px){
-    
+
+    #main{
+        .main__iframe-texto{
+            @include flex-direction-align(flex, row, start, space-between);
+            @include style-iframe-texto(80px, 0px, 40px 0px 40px 0px);
+
+            .main__iframe{
+                padding-left: 20px;
+                h3{
+                    @include style-subtitulos(1.4rem, 20px);
+                }
+            }
+        
+            .main__texto{
+                padding: 0;
+                h4{
+                    @include style-subtitulos(1.4rem, 20px);
+                }
+            }
+        }
+    }
+  
 }
 
 
 @media (min-width: 721px) and (max-width: 900px){
+
+    #main{
+        .main__iframe-texto{
+            @include flex-direction-align(flex, row, start, space-between);
+            @include style-iframe-texto(80px, 0px, 40px 0px 40px 0px);
+            .main__iframe{
+                padding-left: 30px;
+                iframe{
+                    width: 330px;
+                }
+                h3{
+                    @include style-subtitulos(1.5rem, 20px);
+                }
+            }
+        
+            .main__texto{
+                width: 50%;
+                h4{
+                    @include style-subtitulos(1.5rem, 20px);
+                }
+            }
+        }
+    }
    
 }
 
 
 @media (min-width: 901px) and (max-width: 1280px){
-   
+    #main{
+        .main__iframe-texto{
+            @include flex-direction-align(flex, row, start, space-between);
+            @include style-iframe-texto(80px, 0px, 40px 0px 40px 0px);
+            .main__iframe{
+                padding-left: 30px;
+                iframe{
+                    width: 400px;
+                }
+                h3{
+                    @include style-subtitulos(1.6rem, 20px);
+                }
+            }
+        
+            .main__texto{
+                width: 50%;
+                padding-right: 30px;
+                h4{
+                    @include style-subtitulos(1.6rem, 20px);
+                }
+            }
+        }
+    }
 }
 
 
-@media (min-width: 1281px) and (max-width: 1600px){
-   
+@media (min-width: 1281px){
+    #main{
+        .main__iframe-texto{
+            @include flex-direction-align(flex, row, start, space-between);
+            @include style-iframe-texto(100px, 0px, 40px 0px 40px 0px);
+            .main__iframe{
+                padding-left: 50px;
+                h3{
+                    @include style-subtitulos(1.7rem, 20px);
+                }
+                iframe{                   
+                    width: 500px;
+                    height: 300px;
+                }
+            }
+        
+            .main__texto{
+                width: 50%;
+                padding-right: 50px;
+                h4{
+                    @include style-subtitulos(1.7rem, 20px);
+                }
+
+            }
+            
+        }
+    }
 }

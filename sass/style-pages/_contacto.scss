@@ -28,7 +28,7 @@
                 h3{
                     text-align: center;
                     font-size: 1.4em;
-                    color: $color-h3;
+                    color: $color-subtitulos;
                 }
 
             .redes__insta-fb{
@@ -59,7 +59,8 @@
             h4{
                 text-align: center;
                 font-size: 1.4em;
-                color: $color-h4;
+                color: $color-subtitulos;
+                
             }
 
            
@@ -156,7 +157,7 @@
 
 
 
-@media (min-width: 1281px) and (max-width: 1600px){
+@media (min-width: 1281px){
 
     #main{
 

@@ -15,7 +15,7 @@
 
 @mixin titulos-productos (){
     text-align: center;
-     color: #f06706;
+    color: $color-subtitulos;
      font-size: 1.5rem;
      padding: 0px 0px 40px 0px;
     
@@ -51,7 +51,7 @@
                                 color: black;
                             }
                             a:hover{
-                                color: rgb(215, 215, 215)
+                                color: $color-hover-caregorias;
                             }
                         }
                     
@@ -203,6 +203,8 @@
 
             .main__productos{
                 @include flex-direction-align(flex, column, center, 100px);
+                padding-left: 50px;
+
                 #productos__tapices, #productos__colgantes{
                     .productos__titulo{
                         @include titulos-productos();
@@ -222,7 +224,7 @@
     }
     
     
-    @media (min-width: 1281px) and (max-width: 1600px){
+    @media (min-width: 1281px){
         .main__aside-productos{
             @include flex-direction-align(flex, row, start, 0px);
             padding: 100px 0px 100px 0px;
@@ -245,6 +247,7 @@
 
             .main__productos{
                 @include flex-direction-align(flex, column, center, 100px);
+                padding-left: 100px;
                 #productos__tapices, #productos__colgantes{
                     .productos__titulo{
                         @include titulos-productos();
