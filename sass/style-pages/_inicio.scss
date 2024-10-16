@@ -10,17 +10,19 @@
             }
             ul{
                 display: flex;
-                justify-content: space-evenly;
-                padding: 20px 20px 0px 20px;
+                justify-content: center;
+                gap: 10px;
+                padding: 20px 0px 0px 0px;
                 li{
                     list-style: none;
                     font-size: 0.6rem;
+                    
                    
                     button{
                         padding: 5px 10px 5px 10px;
                         border: none;
-                        border-radius: 3px;
-    
+                        border-radius: 5px;
+                        background-color: rgba(241, 208, 173, 0.466);
                     } 
 
                     button:hover{
@@ -52,7 +54,7 @@
                         font-size: 1.2em;
                     }
                     ul{
-                        padding: 20px 100px 0px 100px;
+                        gap: 20px;
                         li{
                             font-size: 0.7rem;
                             button{
@@ -80,7 +82,7 @@
                         font-size: 1.3rem;
                     }
                     ul{
-                        padding: 20px 150px 0px 150px;
+                        gap: 20px;
                         li{
                             font-size: 0.8rem;
                             button{
@@ -110,7 +112,7 @@
                         font-size: 1.4rem;
                     }
                     ul{
-                        padding: 20px 200px 0px 200px;
+                        gap: 20px;
                         li{
                             font-size: 0.9rem;
                             button{
@@ -140,7 +142,7 @@
                         font-size: 1.4rem;
                     }
                     ul{
-                        padding: 20px 370px 0px 370px;
+                        gap: 20px;
                         li{
                             font-size: 1rem;
                             button{

@@ -194,42 +194,75 @@
 #footer {
   background-color: rgb(242, 231, 231);
 }
-#footer h5 {
+#footer .footer__redes-nav-mail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  flex-direction: column;
+}
+#footer .footer__redes-nav-mail h5 {
   text-align: center;
   color: #7c5e45;
   font-weight: 700;
   padding: 20px;
 }
-#footer .redes {
+#footer .footer__redes-nav-mail .redes {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
 }
-#footer .footer__nav li {
+#footer .footer__redes-nav-mail .footer__nav li {
   font-size: 0.9em;
 }
-#footer .footer__nav li a {
+#footer .footer__redes-nav-mail .footer__nav li a {
   color: black;
 }
-#footer .footer__nav li a:hover {
+#footer .footer__redes-nav-mail .footer__nav li a:hover {
   color: rgb(175, 155, 155);
   transform: translate(0px, -1.5px);
   transition: 0.4s;
 }
+#footer .footer__redes-nav-mail .footer__mail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 20px 0px 10px 0px;
+}
+#footer .footer__redes-nav-mail .footer__mail a {
+  font-size: 0.8rem;
+  color: black;
+  text-decoration: none;
+}
+#footer .footer__redes-nav-mail .footer__mail a:hover {
+  text-decoration: underline;
+}
 #footer .footer__copy {
   text-align: center;
   background-color: #E6D1BE;
-  padding: 20px;
+  padding: 20px 0px 20px 0px;
 }
 #footer .footer__copy p {
   font-weight: 350;
-  font-size: 0.95em;
+  font-size: 0.95rem;
 }
 #footer .footer__copy a {
   color: rgb(0, 4, 255);
   margin-left: 3px;
 }
 
+@media (min-width: 1200px) {
+  #footer .footer__redes-nav-mail .footer__mail {
+    position: absolute;
+    left: 15px;
+    padding: 0px;
+  }
+  #footer .footer__redes-nav-mail .footer__mail a {
+    font-size: 0.9rem;
+  }
+}
 #main .main__img img {
   width: 100%;
   object-fit: cover;
@@ -257,8 +290,9 @@ h2 {
 }
 #main .main__categorias .main__categorias-bg ul {
   display: flex;
-  justify-content: space-evenly;
-  padding: 20px 20px 0px 20px;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0px 0px 0px;
 }
 #main .main__categorias .main__categorias-bg ul li {
   list-style: none;
@@ -267,10 +301,11 @@ h2 {
 #main .main__categorias .main__categorias-bg ul li button {
   padding: 5px 10px 5px 10px;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
+  background-color: rgba(241, 208, 173, 0.466);
 }
 #main .main__categorias .main__categorias-bg ul li button:hover {
-  color: rgb(215, 215, 215);
+  color: rgba(105, 102, 102, 0.679);
 }
 #main .main__video {
   padding: 50px 0px 50px 0px;
@@ -285,7 +320,7 @@ h2 {
     font-size: 1.2em;
   }
   #main .main__categorias .main__categorias-bg ul {
-    padding: 20px 100px 0px 100px;
+    gap: 20px;
   }
   #main .main__categorias .main__categorias-bg ul li {
     font-size: 0.7rem;
@@ -302,7 +337,7 @@ h2 {
     font-size: 1.3rem;
   }
   #main .main__categorias .main__categorias-bg ul {
-    padding: 20px 150px 0px 150px;
+    gap: 20px;
   }
   #main .main__categorias .main__categorias-bg ul li {
     font-size: 0.8rem;
@@ -319,7 +354,7 @@ h2 {
     font-size: 1.4rem;
   }
   #main .main__categorias .main__categorias-bg ul {
-    padding: 20px 200px 0px 200px;
+    gap: 20px;
   }
   #main .main__categorias .main__categorias-bg ul li {
     font-size: 0.9rem;
@@ -336,7 +371,7 @@ h2 {
     font-size: 1.4rem;
   }
   #main .main__categorias .main__categorias-bg ul {
-    padding: 20px 370px 0px 370px;
+    gap: 20px;
   }
   #main .main__categorias .main__categorias-bg ul li {
     font-size: 1rem;
@@ -478,13 +513,14 @@ h2 {
 #main .main__aside-productos .main__categorias .categorias__filtros .categorias li {
   padding: 5px 0px 5px 0px;
   list-style: none;
+  font-size: 0.9rem;
 }
 #main .main__aside-productos .main__categorias .categorias__filtros .categorias li a {
   text-decoration: none;
   color: black;
 }
 #main .main__aside-productos .main__categorias .categorias__filtros .categorias li a:hover {
-  color: rgb(215, 215, 215);
+  color: rgba(105, 102, 102, 0.679);
 }
 #main .main__aside-productos .main__productos {
   display: flex;
@@ -555,7 +591,7 @@ h2 {
     gap: 30px;
   }
   #main .main__aside-productos .main__categorias .categorias__filtros .categorias li {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   #main .main__aside-productos .main__productos {
     display: flex;
@@ -599,7 +635,7 @@ h2 {
     width: 240px;
   }
   #main .main__aside-productos .main__categorias .categorias__filtros .categorias li {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   #main .main__aside-productos .main__productos {
     display: flex;
@@ -644,7 +680,7 @@ h2 {
     width: 240px;
   }
   #main .main__aside-productos .main__categorias .categorias__filtros .categorias li {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   #main .main__aside-productos .main__productos {
     display: flex;
