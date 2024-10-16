@@ -29,7 +29,8 @@
 
 #main{
     .main__aside-productos{ 
-        @include flex-direction-align(flex, column, center, 60px);
+        @include flex-direction-align(flex, column, center, 100px);
+        padding: 50px 0px 100px 0px;
         .main__categorias{
             .categorias__filtros{
                 background-color: rgba(229, 229, 229, 0.626);
@@ -138,7 +139,7 @@
     @media (min-width: 720px) and (max-width: 900px){
         
             .main__aside-productos{
-                
+                padding: 100px 0px 100px 0px;
                     .main__categorias{
                         .categorias__filtros{
                             .categorias{

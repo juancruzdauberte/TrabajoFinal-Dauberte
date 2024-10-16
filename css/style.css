@@ -213,13 +213,20 @@
   align-items: center;
   gap: 20px;
 }
-#footer .footer__redes-nav-mail .footer__nav li {
+#footer .footer__redes-nav-mail .footer__nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  flex-direction: column;
+}
+#footer .footer__redes-nav-mail .footer__nav ul li {
   font-size: 0.9em;
 }
-#footer .footer__redes-nav-mail .footer__nav li a {
+#footer .footer__redes-nav-mail .footer__nav ul li a {
   color: black;
 }
-#footer .footer__redes-nav-mail .footer__nav li a:hover {
+#footer .footer__redes-nav-mail .footer__nav ul li a:hover {
   color: rgb(175, 155, 155);
   transform: translate(0px, -1.5px);
   transition: 0.4s;
@@ -251,8 +258,21 @@
 #footer .footer__copy a {
   color: rgb(0, 4, 255);
   margin-left: 3px;
+  text-decoration: none;
+}
+#footer .footer__copy a:hover {
+  text-decoration: underline;
 }
 
+@media (min-width: 560px) {
+  #footer .footer__redes-nav-mail .footer__nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    flex-direction: row;
+  }
+}
 @media (min-width: 1200px) {
   #footer .footer__redes-nav-mail .footer__mail {
     position: absolute;
@@ -496,7 +516,8 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 60px;
+  row-gap: 100px;
+  padding: 50px 0px 100px 0px;
 }
 #main .main__aside-productos .main__categorias .categorias__filtros {
   background-color: rgba(229, 229, 229, 0.626);
@@ -586,6 +607,9 @@ h2 {
   transform: scale(1.05);
 }
 @media (min-width: 720px) and (max-width: 900px) {
+  #main .main__aside-productos {
+    padding: 100px 0px 100px 0px;
+  }
   #main .main__aside-productos .main__categorias .categorias__filtros .categorias {
     display: flex;
     gap: 30px;

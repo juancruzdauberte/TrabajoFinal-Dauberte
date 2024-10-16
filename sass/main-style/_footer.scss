@@ -26,17 +26,22 @@
         }
     
         .footer__nav{
-            li{
-                font-size: 0.9em;
-                a{
-                    color: black;
-                }
-                a:hover{
-                    color: $li-hover;
-                    transform: translate(0px,-1.5px);
-                    transition: .4s;
+            ul{
+                @include flex-justify-align-gap(flex, center, center, 0px);
+                flex-direction: column;
+                li{
+                    font-size: 0.9em;
+                    a{
+                        color: black;
+                    }
+                    a:hover{
+                        color: $li-hover;
+                        transform: translate(0px,-1.5px);
+                        transition: .4s;
+                    }
                 }
             }
+
         }
     
         .footer__mail{
@@ -66,10 +71,31 @@
 
         a{
             color: rgb(0, 4, 255);
-             margin-left: 3px;
+            margin-left: 3px;
+            text-decoration: none;
+        }
+
+        a:hover{
+            text-decoration: underline;
         }
     }
 
+
+}
+
+@media (min-width: 560px){
+    #footer{
+        .footer__redes-nav-mail{
+            .footer__nav{
+                ul{
+                    @include flex-justify-align-gap(flex,center,center,0px);
+                    flex-direction: row;
+                }
+        
+            }
+        }
+
+    }
 
 }
 
