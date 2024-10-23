@@ -30,9 +30,10 @@
                 @include flex-justify-align-gap(flex, center, center, 0px);
                 flex-direction: column;
                 li{
-                    font-size: 0.9em;
+                    font-size: 0.7em;
                     a{
                         color: black;
+                        text-transform: uppercase    
                     }
                     a:hover{
                         color: $li-hover;
@@ -99,7 +100,7 @@
 
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1000px){
     #footer{
         .footer__redes-nav-mail{
             .footer__mail{
