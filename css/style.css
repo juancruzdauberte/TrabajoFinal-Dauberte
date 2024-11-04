@@ -947,13 +947,13 @@ h2 {
     align-self: start;
   }
   #main .main__imagenes .imagen__izquierda img {
-    width: 300px;
+    width: 270px;
   }
   #main .main__imagenes .imagen__derecha {
     align-self: end;
   }
   #main .main__imagenes .imagen__derecha img {
-    width: 300px;
+    width: 270px;
   }
 }
 * {
