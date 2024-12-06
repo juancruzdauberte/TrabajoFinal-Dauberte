@@ -25,7 +25,21 @@ const producto = [{
   precio: 12000,
   img: "../imgs/productos/tapices/tapiz3.jpeg",
   tipo: "tapiz"
-},]
+},
+{
+  id: 5,
+  nombre: "Colgante Luna",
+  precio: 16000,
+  img: "../imgs/productos/colgantes/colgante2.jpeg",
+  tipo: "colgante"
+},
+{
+  id: 6,
+  nombre: "Colgante Matutin",
+  precio: 18000,
+  img: "../imgs/productos/colgantes/colgante3.jpeg",
+  tipo: "colgante"
+}]
 
 const tapices = document.getElementById("productos__card-tapices")
 const colgantes = document.getElementById("productos__card-colgantes")
@@ -47,6 +61,8 @@ function agregarProducto (producto){
 
   const botonAgregar = document.createElement("button")
   botonAgregar.innerText = "Agregar al carrito"
+  botonAgregar.id = "botonAgregar"
+  botonAgregar.dataset.id = producto.id;  //asocio el ID del producto al boton
 
   if (producto.tipo === "tapiz") {
     carta.appendChild(imgProducto)
@@ -54,7 +70,8 @@ function agregarProducto (producto){
     carta.appendChild(precio)
     carta.appendChild(botonAgregar)
     tapices.appendChild(carta)
-  }else if (producto.tipo === "colgante"){    //IF ELSE precario, cuando tenga defenido los tipos de productos uso switch je
+
+  } else if (producto.tipo === "colgante"){    //IF ELSE precario, cuando tenga defenido los tipos de productos uso SWITCH je
     carta.appendChild(imgProducto)
     carta.appendChild(titulo)
     carta.appendChild(precio)
@@ -63,7 +80,7 @@ function agregarProducto (producto){
   }  
 }
 
-producto.forEach(el =>{
+producto.forEach((el) =>{
     agregarProducto(el)
 })
 

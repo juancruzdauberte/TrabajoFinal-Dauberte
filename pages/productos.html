@@ -67,7 +67,7 @@
         </section>
 
         <section class="carrito" data-aos="fade-down-left">
-            <button><img src="../imgs/logos/agregar-carrito.png" alt="carrito"></button>
+            <button id="botonCarrito"><img src="../imgs/logos/agregar-carrito.png" alt="carrito"></button>
         </section>
     
 </header>
@@ -92,11 +92,9 @@
         <h2>PRODUCTOS</h2>
     </section>
 
-
     <section class="main__aside-productos">
 
         <section class="main__categorias">
-                
             <div class="categorias__filtros">
                 <div><p>Categorias</p></div>
 
@@ -106,19 +104,17 @@
                     <li><a href="#">Hogar</a></li>
                     <li><a href="#">Almohadones</a></li>
                 </ul>
-            </div>
-                
+            </div>         
         </section>
 
         <section class="main__productos">
 
-            <div class="input-group input-group-sm mb-3">
+            <section class="main__buscador">
                 <input id="inputBuscador" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Buscar producto">
                 <button id="botonBuscador" class="btn btn-primary" type="submit">Buscar</button>
-            </div>
+            </section>
 
             <section id="productos__tapices">
-
                 <div class="productos__titulo">
                     <h3>Tapices</h3>
                 </div>
@@ -126,10 +122,8 @@
                 <div id="productos__card-tapices">
 
                 </div>
-         
             </section>
-            
-            
+                   
             <section id="productos__colgantes">
 
                 <div class="productos__titulo">
@@ -138,13 +132,9 @@
 
                 <div id="productos__card-colgantes">
                     
-                </div>
-                
+                </div>              
             </section>
-      
-
-        </section>
-       
+        </section>   
     </section>
 
 </main>
@@ -215,6 +205,8 @@
             AOS.init();
         </script>
 
-        <script src="../js/agregarProducto.js"></script>
+        <script src="../js/crearProducto.js"></script>
+        <script src="../js/agregarCarrito.js"></script>
+
 </body>
 </html>

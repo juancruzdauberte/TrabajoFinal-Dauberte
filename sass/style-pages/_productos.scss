@@ -55,16 +55,27 @@
                                 color: $color-hover-caregorias;
                             }
                         }
-                    
                 }
             }
             
         }
 
         .main__productos{ 
-            @include flex-direction-align(flex, column, center, 100px);
+            .main__buscador{
+                display: flex;
+                gap: 20px;
+                input{
+                    width: 500px;
+                }
+
+                button{
+                    background-color: #62401d;
+                    border: none;
+                }
+            }
+
+            @include flex-direction-align(flex, column, center, 80px);
             #productos__tapices, #productos__colgantes{
-                
                 .productos__titulo{
                     @include titulos-productos();
                 }  
@@ -128,8 +139,6 @@
                     }   
                 }
             }
-            
-          
         }
     }
    
@@ -152,7 +161,6 @@
                     }
                     
                 .main__productos{
-                    @include flex-direction-align(flex, column, center, 100px);
                     #productos__tapices, #productos__colgantes{
                         
                         .productos__titulo{
@@ -172,7 +180,7 @@
     @media (min-width: 901px) and (max-width: 1280px){
         .main__aside-productos{
             @include flex-direction-align(flex, row, start, 0px);
-            padding: 100px 0px 100px 0px;
+            padding: 50px 0px 100px 0px;
             .main__categorias{
                 min-height: 100vh;
                 width: 30%;
@@ -189,9 +197,7 @@
             }
 
             .main__productos{
-                @include flex-direction-align(flex, column, center, 100px);
                 padding-left: 50px;
-
                 #productos__tapices, #productos__colgantes{
                     .productos__titulo{
                         @include titulos-productos();
@@ -201,8 +207,7 @@
                         @include productosStyle(); 
                         @include gap-productos(60px, 100px);
 
-                    }
-                    
+                    }     
                 }
             }
         }
@@ -212,7 +217,7 @@
     @media (min-width: 1281px){
         .main__aside-productos{
             @include flex-direction-align(flex, row, start, 0px);
-            padding: 100px 0px 100px 0px;
+            padding: 50px 0px 100px 0px;
             .main__categorias{
                 min-height: 100vh;
                 width: 30%;
@@ -229,8 +234,7 @@
             }
 
             .main__productos{
-                @include flex-direction-align(flex, column, center, 100px);
-                padding-left: 200px;
+                padding-left: 50px;
                 #productos__tapices, #productos__colgantes{
                     .productos__titulo{
                         @include titulos-productos();
