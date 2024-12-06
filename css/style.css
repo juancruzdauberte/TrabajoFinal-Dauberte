@@ -531,7 +531,7 @@ h2 {
   font-size: 1.5rem;
   padding: 0px 0px 40px 0px;
 }
-#main .main__aside-productos .main__productos #productos__tapices .productos__card, #main .main__aside-productos .main__productos #productos__colgantes .productos__card {
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -539,48 +539,55 @@ h2 {
   column-gap: 0px;
   row-gap: 100px;
 }
-#main .main__aside-productos .main__productos #productos__tapices .productos__card .producto, #main .main__aside-productos .main__productos #productos__colgantes .productos__card .producto {
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card {
+  width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
   background-color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  max-width: 230px;
-  transition: transform 0.2s ease;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0px;
 }
-#main .main__aside-productos .main__productos #productos__tapices .productos__card .producto .producto__img img, #main .main__aside-productos .main__productos #productos__colgantes .productos__card .producto .producto__img img {
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card:hover, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card:hover, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card:hover, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card img, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card img, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card img, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
+  border-bottom: 1px solid #ddd;
 }
-#main .main__aside-productos .main__productos #productos__tapices .productos__card .producto .producto__info, #main .main__aside-productos .main__productos #productos__colgantes .productos__card .producto .producto__info {
-  padding: 15px;
-}
-#main .main__aside-productos .main__productos #productos__tapices .productos__card .producto .producto__info h6, #main .main__aside-productos .main__productos #productos__colgantes .productos__card .producto .producto__info h6 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-#main .main__aside-productos .main__productos #productos__tapices .productos__card .producto .producto__info p, #main .main__aside-productos .main__productos #productos__colgantes .productos__card .producto .producto__info p {
-  color: #666;
-  font-size: 0.9em;
-  margin-bottom: 15px;
-}
-#main .main__aside-productos .main__productos #productos__tapices .productos__card .producto .producto__info .precio, #main .main__aside-productos .main__productos #productos__colgantes .productos__card .producto .producto__info .precio {
-  display: block;
-  font-size: 1.2em;
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card h6, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card h6, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card h6, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card h6 {
+  font-size: 1.1rem;
+  margin: 15px 0 5px;
   color: #333;
-  margin-bottom: 15px;
 }
-#main .main__aside-productos .main__productos #productos__tapices .productos__card .producto .producto__info button, #main .main__aside-productos .main__productos #productos__colgantes .productos__card .producto .producto__info button {
-  background-color: #28a745;
-  color: white;
-  padding: 8px 10px;
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card p, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card p, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card p, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card p {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 10px 15px 15px;
+  line-height: 1.4;
+}
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card button, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card button, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card button, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card button {
+  display: inline-block;
+  background-color: #3ac735;
+  color: #fff;
   border: none;
+  width: 130px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  padding: 8px 12px;
+  font-size: 0.77rem;
+  transition: background-color 0.2s ease;
+  margin-bottom: 20px;
 }
-#main .main__aside-productos .main__productos #productos__tapices .productos__card .producto .producto__info button:hover, #main .main__aside-productos .main__productos #productos__colgantes .productos__card .producto .producto__info button:hover {
-  background-color: #218838;
-}
-#main .main__aside-productos .main__productos #productos__tapices .productos__card .producto:hover, #main .main__aside-productos .main__productos #productos__colgantes .productos__card .producto:hover {
-  transform: scale(1.05);
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card button:hover, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card button:hover, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card button:hover, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card button:hover {
+  background-color: #42ed4e;
 }
 @media (min-width: 720px) and (max-width: 900px) {
   #main .main__aside-productos {
@@ -605,7 +612,7 @@ h2 {
     font-size: 1.5rem;
     padding: 0px 0px 40px 0px;
   }
-  #main .main__aside-productos .main__productos #productos__tapices .productos__card, #main .main__aside-productos .main__productos #productos__colgantes .productos__card {
+  #main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -650,7 +657,7 @@ h2 {
     font-size: 1.5rem;
     padding: 0px 0px 40px 0px;
   }
-  #main .main__aside-productos .main__productos #productos__tapices .productos__card, #main .main__aside-productos .main__productos #productos__colgantes .productos__card {
+  #main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -695,7 +702,7 @@ h2 {
     font-size: 1.5rem;
     padding: 0px 0px 40px 0px;
   }
-  #main .main__aside-productos .main__productos #productos__tapices .productos__card, #main .main__aside-productos .main__productos #productos__colgantes .productos__card {
+  #main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes {
     display: flex;
     flex-direction: row;
     align-items: center;

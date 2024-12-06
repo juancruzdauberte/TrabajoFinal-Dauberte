@@ -111,46 +111,20 @@
         </section>
 
         <section class="main__productos">
+
+            <div class="input-group input-group-sm mb-3">
+                <input id="inputBuscador" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Buscar producto">
+                <button id="botonBuscador" class="btn btn-primary" type="submit">Buscar</button>
+            </div>
+
             <section id="productos__tapices">
 
                 <div class="productos__titulo">
                     <h3>Tapices</h3>
                 </div>
 
-                <div class="productos__card">
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/tapices/tapiz.jpeg" alt="tapiz">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/tapices/tapiz2.jpeg" alt="tapiz">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/tapices/tapiz3.jpeg" alt="tapiz">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
+                <div id="productos__card-tapices">
+
                 </div>
          
             </section>
@@ -162,84 +136,8 @@
                     <h4>Colgantes</h4>
                 </div>
 
-                <div class="productos__card">
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/colgantes/colgante1.jpeg" alt="colgante">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/colgantes/colgante2.jpeg" alt="colgante">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/colgantes/colgante3.jpeg" alt="colgante">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/colgantes/colgante4.jpeg" alt="colgante">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/colgantes/colgante5.jpeg" alt="colgante">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/colgantes/colgante6.jpeg" alt="colgante">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
-                    <div class="producto">
-                        <div class="producto__img">
-                            <img src="../imgs/productos/colgantes/colgante7.jpeg" alt="colgante">
-                        </div>
-                        <div class="producto__info">
-                            <h6>Nombre del Producto</h6>
-                            <p>Descripción</p>
-                            <span class="precio">$</span>
-                            <button>Añadir al carrito</button>
-                        </div>
-                    </div>
+                <div id="productos__card-colgantes">
+                    
                 </div>
                 
             </section>
@@ -317,5 +215,6 @@
             AOS.init();
         </script>
 
+        <script src="../js/agregarProducto.js"></script>
 </body>
 </html>
