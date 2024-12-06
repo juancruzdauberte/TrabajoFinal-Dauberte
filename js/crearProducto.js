@@ -61,8 +61,12 @@ function agregarProducto (producto){
 
   const botonAgregar = document.createElement("button")
   botonAgregar.innerText = "Agregar al carrito"
-  botonAgregar.id = "botonAgregar"
+  botonAgregar.className = "botonAgregar"
   botonAgregar.dataset.id = producto.id;  //asocio el ID del producto al boton
+  botonAgregar.addEventListener("click", producto => { //evento para agregar un producto al carrito
+    agregarAlCarrito(producto)
+  })
+ 
 
   if (producto.tipo === "tapiz") {
     carta.appendChild(imgProducto)
