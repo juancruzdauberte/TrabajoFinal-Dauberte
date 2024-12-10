@@ -1,44 +1,51 @@
-const producto = [{
+const productos = [{
     id: 1,
     nombre: "Tapiz Mohana",
     precio: 12000,
     img: "../imgs/productos/tapices/tapiz.jpeg",
-    tipo: "tapiz"
+    categoria: "tapiz"
 },
 {
   id: 2,
   nombre: "Tapiz Pilucha",
   precio: 12000,
   img: "../imgs/productos/tapices/tapiz2.jpeg",
-  tipo: "tapiz"
+  categoria: "tapiz"
 },
 {
   id: 3,
   nombre: "Colgante Kuan",
   precio: 12000,
   img: "../imgs/productos/colgantes/colgante1.jpeg",
-  tipo: "colgante"
+  categoria: "colgante"
 },
 {
   id: 4,
   nombre: "Tapiz Marilau",
   precio: 12000,
   img: "../imgs/productos/tapices/tapiz3.jpeg",
-  tipo: "tapiz"
+  categoria: "tapiz"
 },
 {
   id: 5,
   nombre: "Colgante Luna",
   precio: 16000,
   img: "../imgs/productos/colgantes/colgante2.jpeg",
-  tipo: "colgante"
+  categoria: "colgante"
 },
 {
   id: 6,
   nombre: "Colgante Matutin",
   precio: 18000,
   img: "../imgs/productos/colgantes/colgante3.jpeg",
-  tipo: "colgante"
+  categoria: "colgante"
+},
+{
+  id: 7,
+  nombre: "Colgante Perla",
+  precio: 25000,
+  img: "../imgs/productos/colgantes/colgante4.jpeg",
+  categoria: "colgante"
 }]
 
 const tapices = document.getElementById("productos__card-tapices")
@@ -52,6 +59,7 @@ function agregarProducto (producto){
 
   const imgProducto = document.createElement("img")
   imgProducto.src = producto.img
+  imgProducto.alt = producto.nombre;
 
   const titulo = document.createElement("h6")
   titulo.innerText = producto.nombre
@@ -61,21 +69,17 @@ function agregarProducto (producto){
 
   const botonAgregar = document.createElement("button")
   botonAgregar.innerText = "Agregar al carrito"
-  botonAgregar.className = "botonAgregar"
+  botonAgregar.className = "botonAgregarCarrito"
   botonAgregar.dataset.id = producto.id;  //asocio el ID del producto al boton
-  botonAgregar.addEventListener("click", producto => { //evento para agregar un producto al carrito
-    agregarAlCarrito(producto)
-  })
  
-
-  if (producto.tipo === "tapiz") {
+  if (producto.categoria === "tapiz") {
     carta.appendChild(imgProducto)
     carta.appendChild(titulo)
     carta.appendChild(precio)
     carta.appendChild(botonAgregar)
     tapices.appendChild(carta)
 
-  } else if (producto.tipo === "colgante"){    //IF ELSE precario, cuando tenga defenido los tipos de productos uso SWITCH je
+  } else if (producto.categoria === "colgante"){    //IF ELSE precario, cuando tenga defenido los tipos de productos uso SWITCH je
     carta.appendChild(imgProducto)
     carta.appendChild(titulo)
     carta.appendChild(precio)
@@ -84,7 +88,7 @@ function agregarProducto (producto){
   }  
 }
 
-producto.forEach((el) =>{
+productos.forEach((el) =>{
     agregarProducto(el)
 })
 

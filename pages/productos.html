@@ -68,8 +68,12 @@
 
         <section class="carrito" data-aos="fade-down-left">
             <button id="botonCarrito"><img src="../imgs/logos/agregar-carrito.png" alt="carrito"></button>
+            
+            <div id="modeloCarrito">
+                
+            </div>
         </section>
-    
+
 </header>
 
 <main id="main">
@@ -111,7 +115,7 @@
 
             <section class="main__buscador">
                 <input id="inputBuscador" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Buscar producto">
-                <button id="botonBuscador" class="btn btn-primary" type="submit">Buscar</button>
+                <ul id="resultadoProductos"  class="lista-resultados"></ul>
             </section>
 
             <section id="productos__tapices">
@@ -206,7 +210,9 @@
         </script>
 
         <script src="../js/crearProducto.js"></script>
-        <script src="../js/agregarCarrito.js"></script>
+        <script src="../js/carrito.js"></script>
+        <script src="../js/buscadorProductos.js"></script>
+        <script src="../js/verCarrito"></script>
 
 </body>
 </html>

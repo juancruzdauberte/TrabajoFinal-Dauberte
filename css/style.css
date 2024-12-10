@@ -527,14 +527,11 @@ h2 {
 }
 #main .main__aside-productos .main__productos .main__buscador {
   display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 #main .main__aside-productos .main__productos .main__buscador input {
   width: 500px;
-}
-#main .main__aside-productos .main__productos .main__buscador button {
-  background-color: #62401d;
-  border: none;
 }
 #main .main__aside-productos .main__productos #productos__tapices .productos__titulo, #main .main__aside-productos .main__productos #productos__colgantes .productos__titulo {
   text-align: center;

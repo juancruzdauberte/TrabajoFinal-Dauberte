@@ -3,8 +3,8 @@ const formulario = document.getElementById("formulario").addEventListener("submi
     let email = document.getElementById("email")
     let mensaje = document.getElementById("mensaje")
 
-    // console.log(email.value)
-    // console.log(mensaje.value)
+    console.log(email.value)
+    console.log(mensaje.value)
     email.value = ""
     mensaje.value = ""
 })
