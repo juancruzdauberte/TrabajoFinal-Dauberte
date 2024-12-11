@@ -75,6 +75,11 @@
   font-size: 0.8rem;
   text-align: center;
 }
+#header .carrito #listaProductos #itemListaProductos #contenidoCarrito .botonEliminarProducto {
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+}
 @media (min-width: 641px) and (max-width: 720px) {
   #header .logo {
     display: flex;

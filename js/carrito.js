@@ -25,8 +25,11 @@ function vaciarCarrito (){
     mostrarCarrito()
 }
 
-function eliminarProductoDelCarrito (){
-
+function eliminarProductoDelCarrito (idProducto){
+    const idProductoAEliminar = parseInt(idProducto.target.dataset.id)
+    carrito = carrito.filter(producto => producto.id !== idProductoAEliminar)
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    mostrarCarrito()
 }
 
 function mostrarCarrito (){
@@ -57,6 +60,7 @@ function mostrarCarrito (){
         const botonEliminarProducto = document.createElement("button")
         botonEliminarProducto.className = "botonEliminarProducto"
         botonEliminarProducto.innerText = "Eliminar"
+        botonEliminarProducto.dataset.id = producto.id
         
         cardCarrito.appendChild(imgCarrito)
         cardCarrito.appendChild(nombreYPrecioCarrito)
@@ -67,7 +71,7 @@ function mostrarCarrito (){
 
         document.querySelectorAll(".botonEliminarProducto").forEach(boton => {
             boton.addEventListener("click", e =>{
-                //funcion para eliminar producto del carrito
+                eliminarProductoDelCarrito(e)
             })
         })
     })       
