@@ -46,6 +46,21 @@ const productos = [{
   precio: 25000,
   img: "../imgs/productos/colgantes/colgante4.jpeg",
   categoria: "colgante"
+},
+{
+  id: 8,
+  nombre: "Colgante Marte",
+  precio: 20000,
+  img: "../imgs/productos/colgantes/colgante5.jpeg",
+  categoria: "colgante"
+}
+,
+{
+  id: 8,
+  nombre: "Colgante Oslo",
+  precio: 10000,
+  img: "../imgs/productos/colgantes/colgante6.jpeg",
+  categoria: "colgante"
 }]
 
 const tapices = document.getElementById("productos__card-tapices")

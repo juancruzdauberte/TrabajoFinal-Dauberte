@@ -68,10 +68,12 @@
 
         <section class="carrito" data-aos="fade-down-left">
             <button id="botonCarrito"><img src="../imgs/logos/agregar-carrito.png" alt="carrito"></button>
-            
-            <div id="modeloCarrito">
+
+            <ul id="listaProductos">
                 
-            </div>
+            </ul>
+
+            <button id="vaciarCarrito">Vaciar Carrito</button>
         </section>
 
 </header>
@@ -96,6 +98,11 @@
         <h2>PRODUCTOS</h2>
     </section>
 
+    <section class="main__buscador">
+        <input id="inputBuscador" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Buscar producto">
+        <ul id="resultadoProductos"  class="lista-resultados"></ul>
+    </section>
+
     <section class="main__aside-productos">
 
         <section class="main__categorias">
@@ -112,11 +119,6 @@
         </section>
 
         <section class="main__productos">
-
-            <section class="main__buscador">
-                <input id="inputBuscador" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Buscar producto">
-                <ul id="resultadoProductos"  class="lista-resultados"></ul>
-            </section>
 
             <section id="productos__tapices">
                 <div class="productos__titulo">
@@ -208,11 +210,10 @@
         <script>
             AOS.init();
         </script>
-
+        
+    <!-- js -->
         <script src="../js/crearProducto.js"></script>
         <script src="../js/carrito.js"></script>
-        <script src="../js/buscadorProductos.js"></script>
-        <script src="../js/verCarrito"></script>
 
 </body>
 </html>

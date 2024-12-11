@@ -1,4 +1,4 @@
-const formulario = document.getElementById("formulario").addEventListener("submit", e =>{
+document.getElementById("formulario").addEventListener("submit", e =>{
     e.preventDefault()
     let email = document.getElementById("email")
     let mensaje = document.getElementById("mensaje")
