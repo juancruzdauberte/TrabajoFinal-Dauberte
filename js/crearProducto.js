@@ -3,64 +3,64 @@ const productos = [{
     nombre: "Tapiz Mohana",
     precio: 12000,
     img: "../imgs/productos/tapices/tapiz.jpeg",
-    categoria: "tapiz"
+    categoria: "tapiz",
 },
 {
   id: 2,
   nombre: "Tapiz Pilucha",
   precio: 12000,
   img: "../imgs/productos/tapices/tapiz2.jpeg",
-  categoria: "tapiz"
+  categoria: "tapiz",
 },
 {
   id: 3,
   nombre: "Colgante Kuan",
   precio: 12000,
   img: "../imgs/productos/colgantes/colgante1.jpeg",
-  categoria: "colgante"
+  categoria: "colgante",
 },
 {
   id: 4,
   nombre: "Tapiz Marilau",
   precio: 12000,
   img: "../imgs/productos/tapices/tapiz3.jpeg",
-  categoria: "tapiz"
+  categoria: "tapiz",
 },
 {
   id: 5,
   nombre: "Colgante Luna",
   precio: 16000,
   img: "../imgs/productos/colgantes/colgante2.jpeg",
-  categoria: "colgante"
+  categoria: "colgante",
 },
 {
   id: 6,
   nombre: "Colgante Matutin",
   precio: 18000,
   img: "../imgs/productos/colgantes/colgante3.jpeg",
-  categoria: "colgante"
+  categoria: "colgante",
 },
 {
   id: 7,
   nombre: "Colgante Perla",
   precio: 25000,
   img: "../imgs/productos/colgantes/colgante4.jpeg",
-  categoria: "colgante"
+  categoria: "colgante",
 },
 {
   id: 8,
   nombre: "Colgante Marte",
   precio: 20000,
   img: "../imgs/productos/colgantes/colgante5.jpeg",
-  categoria: "colgante"
+  categoria: "colgante",
 }
 ,
 {
-  id: 8,
+  id: 9,
   nombre: "Colgante Oslo",
   precio: 10000,
   img: "../imgs/productos/colgantes/colgante6.jpeg",
-  categoria: "colgante"
+  categoria: "colgante",
 }]
 
 const tapices = document.getElementById("productos__card-tapices")

@@ -54,28 +54,28 @@
   border-radius: 3px;
   padding: 3px;
 }
-#header .carrito #listaProductos {
+#header .carrito #listaCarrito {
   display: flex;
   flex-direction: column;
   gap: 10px;
   list-style: none;
 }
-#header .carrito #listaProductos #itemListaProductos #contenidoCarrito {
+#header .carrito #listaCarrito #itemListaCarrito #contenidoCarrito {
   display: flex;
   align-items: center;
   background-color: azure;
 }
-#header .carrito #listaProductos #itemListaProductos #contenidoCarrito .imgCarrito {
+#header .carrito #listaCarrito #itemListaCarrito #contenidoCarrito .imgCarrito {
   width: 50px;
   height: 100%;
   border-radius: 3px;
   object-fit: cover;
 }
-#header .carrito #listaProductos #itemListaProductos #contenidoCarrito .nombreYPrecioCarrito {
+#header .carrito #listaCarrito #itemListaCarrito #contenidoCarrito .nombreYPrecioCarrito {
   font-size: 0.8rem;
   text-align: center;
 }
-#header .carrito #listaProductos #itemListaProductos #contenidoCarrito .botonEliminarProducto {
+#header .carrito #listaCarrito #itemListaCarrito #contenidoCarrito .botonEliminarProducto {
   background-color: red;
   color: white;
   border-radius: 3px;
