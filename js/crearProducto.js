@@ -1,73 +1,28 @@
-const productos = [{
-    id: 1,
-    nombre: "Tapiz Mohana",
-    precio: 12000,
-    img: "../imgs/productos/tapices/tapiz.jpeg",
-    categoria: "tapiz",
-},
-{
-  id: 2,
-  nombre: "Tapiz Pilucha",
-  precio: 12000,
-  img: "../imgs/productos/tapices/tapiz2.jpeg",
-  categoria: "tapiz",
-},
-{
-  id: 3,
-  nombre: "Colgante Kuan",
-  precio: 12000,
-  img: "../imgs/productos/colgantes/colgante1.jpeg",
-  categoria: "colgante",
-},
-{
-  id: 4,
-  nombre: "Tapiz Marilau",
-  precio: 12000,
-  img: "../imgs/productos/tapices/tapiz3.jpeg",
-  categoria: "tapiz",
-},
-{
-  id: 5,
-  nombre: "Colgante Luna",
-  precio: 16000,
-  img: "../imgs/productos/colgantes/colgante2.jpeg",
-  categoria: "colgante",
-},
-{
-  id: 6,
-  nombre: "Colgante Matutin",
-  precio: 18000,
-  img: "../imgs/productos/colgantes/colgante3.jpeg",
-  categoria: "colgante",
-},
-{
-  id: 7,
-  nombre: "Colgante Perla",
-  precio: 25000,
-  img: "../imgs/productos/colgantes/colgante4.jpeg",
-  categoria: "colgante",
-},
-{
-  id: 8,
-  nombre: "Colgante Marte",
-  precio: 20000,
-  img: "../imgs/productos/colgantes/colgante5.jpeg",
-  categoria: "colgante",
+
+const url = '../json/productos.json'
+let productos = [] //array para almacenar los objetos del archivo productos.json dentro del array
+
+async function getProductos() {
+  try {
+    const respuesta = await fetch(url)
+    const data = await respuesta.json()
+    data.forEach((producto)=> mostrarProductoDOM(producto)) //itero el array y lo agrego al DOM
+    productos = data  //productos es un array de ovjetos
+    } catch (error) {
+      console.error(error)
+  }
 }
-,
-{
-  id: 9,
-  nombre: "Colgante Oslo",
-  precio: 10000,
-  img: "../imgs/productos/colgantes/colgante6.jpeg",
-  categoria: "colgante",
-}]
+
+async function cargarYMostrarProductos() {
+  await getProductos(); 
+  console.log(productos);  
+}
 
 const tapices = document.getElementById("productos__card-tapices")
 const colgantes = document.getElementById("productos__card-colgantes")
 
 
-function agregarProducto (producto){
+function mostrarProductoDOM (producto){
 
   const carta = document.createElement("div")
   carta.className = "card"
@@ -86,6 +41,11 @@ function agregarProducto (producto){
   botonAgregar.innerText = "Agregar al carrito"
   botonAgregar.className = "botonAgregarCarrito"
   botonAgregar.dataset.id = producto.id;  //asocio el ID del producto al boton
+
+  //agrego los productos al carrito dinamicamente
+  document.querySelectorAll(".botonAgregarCarrito").forEach(boton => { //recorro todos los botones para encontrar cual se ha clickeado para agregar el producto en el carrito
+    boton.addEventListener("click",agregarAlCarrito);
+  });
  
   if (producto.categoria === "tapiz") {
     carta.appendChild(imgProducto)
@@ -101,11 +61,6 @@ function agregarProducto (producto){
     carta.appendChild(botonAgregar)
     colgantes.appendChild(carta)
   }  
-}
+} 
 
-productos.forEach((el) =>{
-    agregarProducto(el)
-})
-
-
-
+cargarYMostrarProductos()

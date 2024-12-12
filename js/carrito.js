@@ -6,16 +6,16 @@ if (JSON.parse(localStorage.getItem("carrito"))) { //Si hay un carrito que traig
     carrito = []
 }
 
-function agregarAlCarrito (valorBoton) {
+async function agregarAlCarrito (valorBoton) {
     const productoId = parseInt(valorBoton.target.dataset.id);   // Obtengo el ID del producto desde el dataset para hacer la busqueda
-    const productoEncontrado = productos.find((el) => el.id === productoId); //Busco el objeto del producto mediante su id
+    const productoEncontrado =  productos.find((el) => el.id === productoId); //Busco el objeto del producto mediante su id'
     if (productoEncontrado) {
         const indiceProductoEncontrado = carrito.findIndex((el) => el.id === productoEncontrado.id); //Busco el id del producto encontrado que se encuentra dentro del carrito 
         console.log(indiceProductoEncontrado)
         if (indiceProductoEncontrado !== -1) {  //si es distinto de -1 es pq esta en el carrito
             carrito[indiceProductoEncontrado].cantidad += 1;    // Si el producto ya está en el carrito, incremento la cantidad
         } else {
-            carrito.push({      // Si no está en el carrito (findIndex devuelve -1), lo agrego con cantidad 1
+                carrito.push({      // Si no está en el carrito (findIndex devuelve -1), lo agrego con cantidad 1
                 ...productoEncontrado,
                 cantidad: 1
             });
@@ -89,15 +89,14 @@ function mostrarCarrito (){
         itemListaCarrito.appendChild(cardCarrito)
         productosEnCarrito.appendChild(itemListaCarrito)
 
-        document.querySelectorAll(".botonEliminarProducto").forEach(boton => {  //recorro todos los botones para encontrar cual se ha clickeado para la eliminacion del producto en el carrito
-            boton.addEventListener("click", eliminarProductoDelCarrito)
-        })
+    })
+
+    document.querySelectorAll(".botonEliminarProducto").forEach(boton => {  //recorro todos los botones para encontrar cual se ha clickeado para la eliminacion del producto en el carrito
+        boton.addEventListener("click",eliminarProductoDelCarrito)
     })       
 }
 
-document.querySelectorAll(".botonAgregarCarrito").forEach(boton => { //recorro todos los botones para encontrar cual se ha clickeado para agregar el producto en el carrito
-    boton.addEventListener("click", agregarAlCarrito);
-  });
-  
-document.getElementById("botonCarrito").addEventListener("click", mostrarCarrito)
-document.getElementById("vaciarCarrito").addEventListener("click", vaciarCarrito)
+document.getElementById("botonCarrito").addEventListener("click",mostrarCarrito)
+document.getElementById("vaciarCarrito").addEventListener("click",vaciarCarrito)
+
+console.log(productos)
