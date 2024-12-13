@@ -6,7 +6,7 @@ if (JSON.parse(localStorage.getItem("carrito"))) { //Si hay un carrito que traig
     carrito = []
 }
 
-async function agregarAlCarrito (valorBoton) {
+function agregarAlCarrito (valorBoton) {
     const productoId = parseInt(valorBoton.target.dataset.id);   // Obtengo el ID del producto desde el dataset para hacer la busqueda
     const productoEncontrado =  productos.find((el) => el.id === productoId); //Busco el objeto del producto mediante su id'
     if (productoEncontrado) {
@@ -14,11 +14,21 @@ async function agregarAlCarrito (valorBoton) {
         console.log(indiceProductoEncontrado)
         if (indiceProductoEncontrado !== -1) {  //si es distinto de -1 es pq esta en el carrito
             carrito[indiceProductoEncontrado].cantidad += 1;    // Si el producto ya está en el carrito, incremento la cantidad
+            Swal.fire({
+                title: "Producto Añadido",
+                text: "El producto ha sido añadido correctamente al carrito",
+                icon: "success",
+              });
         } else {
                 carrito.push({      // Si no está en el carrito (findIndex devuelve -1), lo agrego con cantidad 1
                 ...productoEncontrado,
                 cantidad: 1
             });
+            Swal.fire({
+                title: "Producto Añadido",
+                text: "El producto ha sido añadido correctamente al carrito",
+                icon: "success"
+              });
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));   //se actualiza el carrito
         mostrarCarrito()    //se muestra el carrito
@@ -35,11 +45,41 @@ function eliminarProductoDelCarrito (valorBoton){
     if (idProductoAEliminar !== -1) {
         if (carrito[productoEncontrado].cantidad > 1) {
             carrito[productoEncontrado].cantidad -= 1     //si el producto se encuentra en el carrito y su cantidad es mayor a 1, disminuye su cantidad
+            Swal.fire({
+                title: "Unidad Eliminada",
+                text: `El producto actualmente tiene ${ carrito[productoEncontrado].cantidad} unidades`,
+                icon: "success",
+              });
+              if (carrito[productoEncontrado].cantidad === 1 ) {
+                Swal.fire({
+                    title: "Unidad Eliminada",
+                    text: `El producto actualmente tiene ${ carrito[productoEncontrado].cantidad} unidad`,
+                    icon: "success",
+                  });
+              }
         }else{
-            carrito.splice(productoEncontrado, 1) //si es menor a uno, saca el producto del carrito
+            Swal.fire({
+                title: "Seguro que quieres eliminar el producto del carrito?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Si, eliminar!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    carrito.splice(productoEncontrado, 1) //si es menor a uno, saca el producto del carrito
+                  Swal.fire({
+                    title: "Eliminado!",
+                    text: "El producto ha sido eliminado del carrito",
+                    icon: "success"
+                  });
+                  localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito
+                  mostrarCarrito()    //muestro el carrito    
+                }
+              })
+
         }
-        localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito
-        mostrarCarrito()    //muestro el carrito        
+    
     }else{
         console.log("No se encuentra el producto en el carrito")
     }
@@ -47,16 +87,22 @@ function eliminarProductoDelCarrito (valorBoton){
 }
 
 function vaciarCarrito (){
+    if (carrito.length > 0) {
+        Swal.fire({
+            title: "Carrito Vacío",
+            text: "El carrito se ha vaciado exitosamente",
+            icon: "success",
+          });
+    }
     carrito = [];   //dejo el array vacio
     localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito
     mostrarCarrito()    //muestro el carrito
 }
 
-
 function mostrarCarrito (){
     const productosEnCarrito = document.getElementById("listaCarrito")
     productosEnCarrito.innerHTML = " "; // Limpia el contenido previo
-    
+
     if (carrito.length === 0) {
         productosEnCarrito.innerHTML = "<li>El carrito está vacío</li>";
         return;
@@ -98,5 +144,3 @@ function mostrarCarrito (){
 
 document.getElementById("botonCarrito").addEventListener("click",mostrarCarrito)
 document.getElementById("vaciarCarrito").addEventListener("click",vaciarCarrito)
-
-console.log(productos)

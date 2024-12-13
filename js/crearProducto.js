@@ -2,10 +2,10 @@
 const url = '../json/productos.json'
 let productos = [] //array para almacenar los objetos del archivo productos.json dentro del array
 
-async function getProductos() {
+async function getProductos() {   //funcion asincrona
   try {
-    const respuesta = await fetch(url)
-    const data = await respuesta.json()
+    const respuesta = await fetch(url)  //hago la peticion a la url relativa
+    const data = await respuesta.json() //guardo la respuesta en formato json
     data.forEach((producto)=> mostrarProductoDOM(producto)) //itero el array y lo agrego al DOM
     productos = data  //productos es un array de ovjetos
     } catch (error) {
@@ -41,11 +41,6 @@ function mostrarProductoDOM (producto){
   botonAgregar.innerText = "Agregar al carrito"
   botonAgregar.className = "botonAgregarCarrito"
   botonAgregar.dataset.id = producto.id;  //asocio el ID del producto al boton
-
-  //agrego los productos al carrito dinamicamente
-  document.querySelectorAll(".botonAgregarCarrito").forEach(boton => { //recorro todos los botones para encontrar cual se ha clickeado para agregar el producto en el carrito
-    boton.addEventListener("click",agregarAlCarrito);
-  });
  
   if (producto.categoria === "tapiz") {
     carta.appendChild(imgProducto)
@@ -60,7 +55,11 @@ function mostrarProductoDOM (producto){
     carta.appendChild(precio)
     carta.appendChild(botonAgregar)
     colgantes.appendChild(carta)
-  }  
+  }
+    //agrego los productos al carrito dinamicamente
+    document.querySelectorAll(".botonAgregarCarrito").forEach(boton => { //recorro todos los botones para encontrar cual se ha clickeado para agregar el producto en el carrito
+      boton.addEventListener("click",agregarAlCarrito);
+    });
 } 
 
 cargarYMostrarProductos()
