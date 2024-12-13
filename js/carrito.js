@@ -8,26 +8,30 @@ if (JSON.parse(localStorage.getItem("carrito"))) { //Si hay un carrito que traig
 
 function agregarAlCarrito (valorBoton) {
     const productoId = parseInt(valorBoton.target.dataset.id);   // Obtengo el ID del producto desde el dataset para hacer la busqueda
-    const productoEncontrado =  productos.find((el) => el.id === productoId); //Busco el objeto del producto mediante su id'
-    if (productoEncontrado) {
-        const indiceProductoEncontrado = carrito.findIndex((el) => el.id === productoEncontrado.id); //Busco el id del producto encontrado que se encuentra dentro del carrito 
+    const producto =  productos.find((el) => el.id === productoId); //Busco el objeto del producto mediante su id'
+    if (producto) {
+        const indiceProductoEncontrado = carrito.findIndex((el) => el.id === producto.id); //Busco el id del producto encontrado que se encuentra dentro del carrito 
         console.log(indiceProductoEncontrado)
         if (indiceProductoEncontrado !== -1) {  //si es distinto de -1 es pq esta en el carrito
-            carrito[indiceProductoEncontrado].cantidad += 1;    // Si el producto ya está en el carrito, incremento la cantidad
+            carrito[indiceProductoEncontrado].cantidad += 1;  // Si el producto ya está en el carrito, incremento la cantidad
             Swal.fire({
-                title: "Producto Añadido",
-                text: "El producto ha sido añadido correctamente al carrito",
+                position: "top-end",
                 icon: "success",
+                title: "Unidad añadida al carrito",
+                showConfirmButton: false,
+                timer: 1500,
               });
         } else {
-                carrito.push({      // Si no está en el carrito (findIndex devuelve -1), lo agrego con cantidad 1
-                ...productoEncontrado,
+                carrito.push({  // Si no está en el carrito (findIndex devuelve -1), lo agrego con cantidad 1
+                ...producto,
                 cantidad: 1
             });
             Swal.fire({
-                title: "Producto Añadido",
-                text: "El producto ha sido añadido correctamente al carrito",
-                icon: "success"
+                position: "top-end",
+                icon: "success",
+                title: "Producto añadido al carrito",
+                showConfirmButton: false,
+                timer: 1500
               });
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));   //se actualiza el carrito
@@ -42,21 +46,30 @@ function eliminarProductoDelCarrito (valorBoton){
     const idProductoAEliminar = parseInt(valorBoton.target.dataset.id) //obtengo y convierto el valor del boton a un entero para hacer la condicion al eliminarlo
     const productoEncontrado = carrito.findIndex((el) => el.id === idProductoAEliminar); //Busco el id del producto encontrado que se encuentra dentro del carrito 
     console.log(productoEncontrado)
+
     if (idProductoAEliminar !== -1) {
         if (carrito[productoEncontrado].cantidad > 1) {
-            carrito[productoEncontrado].cantidad -= 1     //si el producto se encuentra en el carrito y su cantidad es mayor a 1, disminuye su cantidad
+            let unidades = carrito[productoEncontrado].cantidad -= 1 //si el producto se encuentra en el carrito y su cantidad es mayor a 1, disminuye su cantidad
             Swal.fire({
-                title: "Unidad Eliminada",
-                text: `El producto actualmente tiene ${ carrito[productoEncontrado].cantidad} unidades`,
+                position: "top-end",
                 icon: "success",
+                title: "Unidad eliminada",
+                text: `${carrito[productoEncontrado].nombre} cuenta con ${unidades} unidades en el carrito`,
+                showConfirmButton: false,
+                timer: 1500
               });
-              if (carrito[productoEncontrado].cantidad === 1 ) {
+              if (unidades === 1 ) {
                 Swal.fire({
-                    title: "Unidad Eliminada",
-                    text: `El producto actualmente tiene ${ carrito[productoEncontrado].cantidad} unidad`,
+                    position: "top-end",
                     icon: "success",
+                    title: "Unidad eliminada",
+                    text: `${carrito[productoEncontrado].nombre} cuenta con ${unidades} unidad en el carrito`,
+                    showConfirmButton: false,
+                    timer: 1500
                   });
               }
+              localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito
+              mostrarCarrito()    //muestro el carrito    
         }else{
             Swal.fire({
                 title: "Seguro que quieres eliminar el producto del carrito?",
@@ -77,9 +90,7 @@ function eliminarProductoDelCarrito (valorBoton){
                   mostrarCarrito()    //muestro el carrito    
                 }
               })
-
         }
-    
     }else{
         console.log("No se encuentra el producto en el carrito")
     }
@@ -89,9 +100,12 @@ function eliminarProductoDelCarrito (valorBoton){
 function vaciarCarrito (){
     if (carrito.length > 0) {
         Swal.fire({
+            position: "top-end",
+            icon: "success",
             title: "Carrito Vacío",
             text: "El carrito se ha vaciado exitosamente",
-            icon: "success",
+            showConfirmButton: false,
+            timer: 1000
           });
     }
     carrito = [];   //dejo el array vacio
