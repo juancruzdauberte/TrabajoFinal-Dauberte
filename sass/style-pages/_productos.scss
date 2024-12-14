@@ -130,6 +130,17 @@
                                 background-color: #42ed4e;
                             }
                         }
+
+                        #divCantidad{
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 5px;
+                            .cantidadInput{
+                                width: 30px;
+                                height: 30px;
+                                font-size: 0.8rem;  
+                            }
+                        }
                     }   
                 }
             }

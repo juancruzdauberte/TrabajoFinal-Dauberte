@@ -629,6 +629,16 @@ h2 {
 #main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card button:hover, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card button:hover, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card button:hover, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card button:hover {
   background-color: #42ed4e;
 }
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card #divCantidad, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card #divCantidad, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card #divCantidad, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card #divCantidad {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+#main .main__aside-productos .main__productos #productos__tapices #productos__card-tapices .card #divCantidad .cantidadInput, #main .main__aside-productos .main__productos #productos__tapices #productos__card-colgantes .card #divCantidad .cantidadInput, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-tapices .card #divCantidad .cantidadInput, #main .main__aside-productos .main__productos #productos__colgantes #productos__card-colgantes .card #divCantidad .cantidadInput {
+  width: 30px;
+  height: 30px;
+  font-size: 0.8rem;
+}
 @media (min-width: 720px) and (max-width: 900px) {
   #main .main__aside-productos {
     padding: 100px 0px 100px 0px;

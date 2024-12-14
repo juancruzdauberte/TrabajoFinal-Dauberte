@@ -37,6 +37,20 @@ function mostrarProductoDOM (producto){
   const precio = document.createElement("p")
   precio.innerText = `$${producto.precio}`
 
+  const divCantidad = document.createElement("div")
+  divCantidad.id = "divCantidad"
+
+  const cantidadP = document.createElement("p")
+  cantidadP.innerText = "Cantidad: "
+
+  const cantidadInput = document.createElement("input")
+  cantidadInput.className = "cantidadInput"
+  cantidadInput.type = "number"; 
+  cantidadInput.min = "1"; 
+  cantidadInput.step = "1"; 
+  cantidadInput.value = "1";
+  cantidadInput.id = `cantidad-${producto.id}`;   
+
   const botonAgregar = document.createElement("button")
   botonAgregar.innerText = "Agregar al carrito"
   botonAgregar.className = "botonAgregarCarrito"
@@ -46,6 +60,9 @@ function mostrarProductoDOM (producto){
     carta.appendChild(imgProducto)
     carta.appendChild(titulo)
     carta.appendChild(precio)
+    divCantidad.appendChild(cantidadP)
+    divCantidad.appendChild(cantidadInput)
+    carta.appendChild(divCantidad)
     carta.appendChild(botonAgregar)
     tapices.appendChild(carta)
 
@@ -53,6 +70,9 @@ function mostrarProductoDOM (producto){
     carta.appendChild(imgProducto)
     carta.appendChild(titulo)
     carta.appendChild(precio)
+    divCantidad.appendChild(cantidadP)
+    divCantidad.appendChild(cantidadInput)
+    carta.appendChild(divCantidad)
     carta.appendChild(botonAgregar)
     colgantes.appendChild(carta)
   }
