@@ -1,104 +1,132 @@
 @import "../variables";
 
-@mixin logo-carrito($display, $aling-items){
+@mixin modelo-botones($display, $aling-items, $gap){
     display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+@mixin estilo-botones(){
+    border: none;
+    background-color: $bg-header-footer;
 }
 
 #header{
     background-color: $bg-header-footer;
     display: flex;
-    justify-content: space-around;
-    .logo{
-        @include logo-carrito(display,align-items);
-        img{
-            width: 50px;
-            border-radius: 200px;
-        }  
+    justify-content: space-between;
+    align-items: center;
+
+    .header__titulo{
+        padding-left: 20px;
+        h1{
+            color: $color-h1;
+            font-size: 1.7rem;
+            font-weight: 600;
+            text-align: start;
+            span{
+                display: block;
+                padding-left: 3rem;
+            }
+        }
     }
 
     #nav{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-top: 5px;
-
-        h1{
-            text-align: center;
-            color: $color-h1;
-            font-size: 30px;
-            font-weight: 600;
-        }
-
         ul{
-            padding: 10px 0px 10px;
             li{
                 a{
+                    margin: 0;
                     color: black;
+                    display: inline-block;
                     font-size: 0.7rem;
                     text-transform: uppercase    
                 }
 
                 a:hover{
                     color: $li-hover;
-                    transform: translate(0px,-1.5px);
-                    transition: .4s;
+                    transform: translate(0px,-0.5px);
+                    transition: .2s;
+                    text-decoration: underline
                 }
               
             }
         }
     }
 
-    .carrito{
-        @include logo-carrito(display,align-items);
-        button{
-            border: none;
-            background-color: $bg-header-footer;
-            img{
-                width: 25px;
-            }
-        }
-
-        #vaciarCarrito{
-            background-color: rgb(255, 140, 0);
-            color: white;
-            border-radius: 3px;
-            padding: 3px;
-        }
-
-        #listaCarrito{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            list-style: none;
-            #itemListaCarrito{
-                #contenidoCarrito{
-                    display: flex;
-                    align-items: center; 
-                    background-color: azure;
-                    
-                    .imgCarrito{
-                        width: 50px;
-                        height: 100%;
-                        border-radius: 3px;
-                        object-fit: cover;
-                    }
-                    .nombreYPrecioCarrito{
-                        font-size: 0.8rem;
-                        text-align: center;
-                    }
-
-                    .botonEliminarProducto{
-                        background-color: red;
-                        color: white;
-                        border-radius: 3px;
-                    }
+    .header__botones{
+        @include modelo-botones(display,align-items, gap);
+        padding-right: 20px;
+        .carrito{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 20px;
                 }
             }
+    
+            #vaciarCarrito{
+                background-color: rgb(255, 140, 0);
+                color: white;
+                border-radius: 3px;
+                padding: 3px;
+            }
+    
+            #listaCarrito{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                list-style: none;
+                #itemListaCarrito{
+                    #contenidoCarrito{
+                        display: flex;
+                        align-items: center; 
+                        background-color: azure;
+                        
+                        .imgCarrito{
+                            width: 50px;
+                            height: 100%;
+                            border-radius: 3px;
+                            object-fit: cover;
+                        }
+                        .nombreYPrecioCarrito{
+                            font-size: 0.8rem;
+                            text-align: center;
+                        }
+    
+                        .botonEliminarProducto{
+                            background-color: red;
+                            color: white;
+                            border-radius: 3px;
+                        }
+                    }
+                }
+    
+    
+            }
+        }
 
+        .lupa{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 20px;
+                }
+            }
+        }
 
+        .cuenta{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 20px;
+                }
+            }
         }
     }
+
 
 
    
@@ -107,56 +135,70 @@
 
 
     @media (min-width: 641px) and (max-width: 720px){
-        .logo{
-            @include logo-carrito(display,align-items);
-            img{                
-                width: 60px;            
+        .header__titulo{
+            padding-left: 20px;
+            h1{
+                span{
+                    display: block;
+                    padding-left: 3rem;
+                }
             }
-       } 
-
-       #nav{
-        padding-top: 5px;
-        h1{
-            font-size: 30px;
-            font-weight: 600;
         }
 
+       #nav{
         ul{
-            padding: 20px 0px 20px;
             a{
                 font-size: 0.7rem; 
             }   
+            }
         }
-       }
 
-       .carrito{
-            @include logo-carrito(display,align-items);           
+       .header__botones{    
+        @include modelo-botones(display,align-items, gap);
+        .carrito{
             button{
+                @include estilo-botones();
                 img{
                     width: 25px;
                 }
             }
-       }
+    
+            }
+    
+        .lupa{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 25px;
+                }
+            }
+        }
+    
+        .cuenta{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 25px;
+                }
+            }
+        }
+    }
     }
 
 
     @media (min-width: 721px) and (max-width: 900px){
-        .logo{
-            @include logo-carrito(display,align-items);
-            img{                
-                width: 70px;            
+        .header__titulo{
+            padding-left: 20px;
+            h1{
+                span{
+                    display: block;
+                    padding-left: 3rem;
+                }
             }
-       } 
-
-       #nav{
-        padding-top: 5px;
-        h1{
-            font-size: 40px;
-            font-weight: 600;
         }
 
+       #nav{
         ul{
-            padding: 20px 0px 20px;
             li{
                 a{
                     font-size: 0.7rem; 
@@ -165,34 +207,52 @@
         }
        }
 
-       .carrito{
-            @include logo-carrito(display,align-items);           
+       .header__botones{    
+        @include modelo-botones(display,align-items, gap);
+        .carrito{
             button{
+                @include estilo-botones();
                 img{
-                    width: 30px;
+                    width: 25px;
                 }
             }
-       }
+    
+            }
+    
+        .lupa{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 25px;
+                }
+            }
+        }
+    
+        .cuenta{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 25px;
+                }
+            }
+        }
+    }
     }
 
 
     @media (min-width: 901px) and (max-width: 1280px){
-        .logo{
-            @include logo-carrito(display,align-items);
-            img{                
-                width: 80px;            
+        .header__titulo{
+            padding-left: 20px;
+            h1{
+                span{
+                    display: block;
+                    padding-left: 3rem;
+                }
             }
-       } 
-
-       #nav{
-        padding-top: 5px;
-        h1{
-            font-size: 40px;
-            font-weight: 600;
         }
 
+       #nav{
         ul{
-            padding: 20px 0px 20px;
             li{
                 a{
                     font-size: 0.8rem; 
@@ -201,55 +261,90 @@
         }
        }
 
-       .carrito{
-            @include logo-carrito(display,align-items);           
+       .header__botones{    
+        @include modelo-botones(display,align-items, gap);
+        .carrito{
             button{
+                @include estilo-botones();
                 img{
-                    width: 30px;
+                    width: 25px;
                 }
             }
-       }
+    
+            }
+    
+        .lupa{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 25px;
+                }
+            }
+        }
+    
+        .cuenta{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 25px;
+                }
+            }
+        }
+    }
     }
 
 
     @media (min-width: 1281px){
-        .logo{
-            @include logo-carrito(display,align-items);
-            img{                
-                width: 80px;
-                
+        .header__titulo{
+            padding-left: 20px;
+            h1{
+                span{
+                    display: block;
+                    padding-left: 3rem;
+                }
             }
-       } 
-
-       #nav{
-        padding-top: 5px;
-        h1{
-            font-size: 40px;
-            font-weight: 600;
         }
 
+       #nav{
         ul{
-            padding: 20px 0px 20px;
             li{
                 a{
                     font-size: 0.8rem; 
-                }   
-               
+                }       
             }
         }
-
        }
 
-       .carrito{
-            @include logo-carrito(display,align-items);            
+       .header__botones{    
+        @include modelo-botones(display,align-items, gap);
+        .carrito{
             button{
+                @include estilo-botones();
                 img{
-                    width: 30px;
+                    width: 25px;
                 }
             }
-        
-       }
+    
+            }
+    
+        .lupa{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 25px;
+                }
+            }
+        }
+    
+        .cuenta{
+            button{
+                @include estilo-botones();
+                img{
+                    width: 25px;
+                }
+            }
+        }
+    }
     }
 
 }
-

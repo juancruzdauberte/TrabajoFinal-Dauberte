@@ -1,199 +1,250 @@
 #header {
   background-color: rgb(242, 231, 231);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   /*----------------------MEDIA----------------------------------*/
 }
-#header .logo {
-  display: flex;
-  align-items: center;
+#header .header__titulo {
+  padding-left: 20px;
 }
-#header .logo img {
-  width: 50px;
-  border-radius: 200px;
+#header .header__titulo h1 {
+  color: #7c5e45;
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-align: start;
+}
+#header .header__titulo h1 span {
+  display: block;
+  padding-left: 3rem;
 }
 #header #nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 5px;
-}
-#header #nav h1 {
-  text-align: center;
-  color: #7c5e45;
-  font-size: 30px;
-  font-weight: 600;
-}
-#header #nav ul {
-  padding: 10px 0px 10px;
 }
 #header #nav ul li a {
+  margin: 0;
   color: black;
+  display: inline-block;
   font-size: 0.7rem;
   text-transform: uppercase;
 }
 #header #nav ul li a:hover {
   color: rgb(175, 155, 155);
-  transform: translate(0px, -1.5px);
-  transition: 0.4s;
+  transform: translate(0px, -0.5px);
+  transition: 0.2s;
+  text-decoration: underline;
 }
-#header .carrito {
+#header .header__botones {
   display: flex;
   align-items: center;
+  gap: 10px;
+  padding-right: 20px;
 }
-#header .carrito button {
+#header .header__botones .carrito button {
   border: none;
   background-color: rgb(242, 231, 231);
 }
-#header .carrito button img {
-  width: 25px;
+#header .header__botones .carrito button img {
+  width: 20px;
 }
-#header .carrito #vaciarCarrito {
+#header .header__botones .carrito #vaciarCarrito {
   background-color: rgb(255, 140, 0);
   color: white;
   border-radius: 3px;
   padding: 3px;
 }
-#header .carrito #listaCarrito {
+#header .header__botones .carrito #listaCarrito {
   display: flex;
   flex-direction: column;
   gap: 10px;
   list-style: none;
 }
-#header .carrito #listaCarrito #itemListaCarrito #contenidoCarrito {
+#header .header__botones .carrito #listaCarrito #itemListaCarrito #contenidoCarrito {
   display: flex;
   align-items: center;
   background-color: azure;
 }
-#header .carrito #listaCarrito #itemListaCarrito #contenidoCarrito .imgCarrito {
+#header .header__botones .carrito #listaCarrito #itemListaCarrito #contenidoCarrito .imgCarrito {
   width: 50px;
   height: 100%;
   border-radius: 3px;
   object-fit: cover;
 }
-#header .carrito #listaCarrito #itemListaCarrito #contenidoCarrito .nombreYPrecioCarrito {
+#header .header__botones .carrito #listaCarrito #itemListaCarrito #contenidoCarrito .nombreYPrecioCarrito {
   font-size: 0.8rem;
   text-align: center;
 }
-#header .carrito #listaCarrito #itemListaCarrito #contenidoCarrito .botonEliminarProducto {
+#header .header__botones .carrito #listaCarrito #itemListaCarrito #contenidoCarrito .botonEliminarProducto {
   background-color: red;
   color: white;
   border-radius: 3px;
 }
+#header .header__botones .lupa button {
+  border: none;
+  background-color: rgb(242, 231, 231);
+}
+#header .header__botones .lupa button img {
+  width: 20px;
+}
+#header .header__botones .cuenta button {
+  border: none;
+  background-color: rgb(242, 231, 231);
+}
+#header .header__botones .cuenta button img {
+  width: 20px;
+}
 @media (min-width: 641px) and (max-width: 720px) {
-  #header .logo {
-    display: flex;
-    align-items: center;
+  #header .header__titulo {
+    padding-left: 20px;
   }
-  #header .logo img {
-    width: 60px;
-  }
-  #header #nav {
-    padding-top: 5px;
-  }
-  #header #nav h1 {
-    font-size: 30px;
-    font-weight: 600;
-  }
-  #header #nav ul {
-    padding: 20px 0px 20px;
+  #header .header__titulo h1 span {
+    display: block;
+    padding-left: 3rem;
   }
   #header #nav ul a {
     font-size: 0.7rem;
   }
-  #header .carrito {
+  #header .header__botones {
     display: flex;
     align-items: center;
+    gap: 10px;
   }
-  #header .carrito button img {
+  #header .header__botones .carrito button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .carrito button img {
+    width: 25px;
+  }
+  #header .header__botones .lupa button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .lupa button img {
+    width: 25px;
+  }
+  #header .header__botones .cuenta button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .cuenta button img {
     width: 25px;
   }
 }
 @media (min-width: 721px) and (max-width: 900px) {
-  #header .logo {
-    display: flex;
-    align-items: center;
+  #header .header__titulo {
+    padding-left: 20px;
   }
-  #header .logo img {
-    width: 70px;
-  }
-  #header #nav {
-    padding-top: 5px;
-  }
-  #header #nav h1 {
-    font-size: 40px;
-    font-weight: 600;
-  }
-  #header #nav ul {
-    padding: 20px 0px 20px;
+  #header .header__titulo h1 span {
+    display: block;
+    padding-left: 3rem;
   }
   #header #nav ul li a {
     font-size: 0.7rem;
   }
-  #header .carrito {
+  #header .header__botones {
     display: flex;
     align-items: center;
+    gap: 10px;
   }
-  #header .carrito button img {
-    width: 30px;
+  #header .header__botones .carrito button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .carrito button img {
+    width: 25px;
+  }
+  #header .header__botones .lupa button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .lupa button img {
+    width: 25px;
+  }
+  #header .header__botones .cuenta button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .cuenta button img {
+    width: 25px;
   }
 }
 @media (min-width: 901px) and (max-width: 1280px) {
-  #header .logo {
-    display: flex;
-    align-items: center;
+  #header .header__titulo {
+    padding-left: 20px;
   }
-  #header .logo img {
-    width: 80px;
-  }
-  #header #nav {
-    padding-top: 5px;
-  }
-  #header #nav h1 {
-    font-size: 40px;
-    font-weight: 600;
-  }
-  #header #nav ul {
-    padding: 20px 0px 20px;
+  #header .header__titulo h1 span {
+    display: block;
+    padding-left: 3rem;
   }
   #header #nav ul li a {
     font-size: 0.8rem;
   }
-  #header .carrito {
+  #header .header__botones {
     display: flex;
     align-items: center;
+    gap: 10px;
   }
-  #header .carrito button img {
-    width: 30px;
+  #header .header__botones .carrito button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .carrito button img {
+    width: 25px;
+  }
+  #header .header__botones .lupa button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .lupa button img {
+    width: 25px;
+  }
+  #header .header__botones .cuenta button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .cuenta button img {
+    width: 25px;
   }
 }
 @media (min-width: 1281px) {
-  #header .logo {
-    display: flex;
-    align-items: center;
+  #header .header__titulo {
+    padding-left: 20px;
   }
-  #header .logo img {
-    width: 80px;
-  }
-  #header #nav {
-    padding-top: 5px;
-  }
-  #header #nav h1 {
-    font-size: 40px;
-    font-weight: 600;
-  }
-  #header #nav ul {
-    padding: 20px 0px 20px;
+  #header .header__titulo h1 span {
+    display: block;
+    padding-left: 3rem;
   }
   #header #nav ul li a {
     font-size: 0.8rem;
   }
-  #header .carrito {
+  #header .header__botones {
     display: flex;
     align-items: center;
+    gap: 10px;
   }
-  #header .carrito button img {
-    width: 30px;
+  #header .header__botones .carrito button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .carrito button img {
+    width: 25px;
+  }
+  #header .header__botones .lupa button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .lupa button img {
+    width: 25px;
+  }
+  #header .header__botones .cuenta button {
+    border: none;
+    background-color: rgb(242, 231, 231);
+  }
+  #header .header__botones .cuenta button img {
+    width: 25px;
   }
 }
 
