@@ -126,17 +126,25 @@ function eliminarProductoDelCarrito (valorBoton){
 function vaciarCarrito (){
     if (carrito.length > 0) {
         Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Carrito Vacío",
-            text: "El carrito se ha vaciado exitosamente",
-            showConfirmButton: false,
-            timer: 1000
-          });
+            title: "Seguro que quieres vaciar el carrito?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, vaciar!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                carrito = [];  //dejo el array vacio
+              Swal.fire({
+                title: "Vaciado!",
+                text: "El carrito ha sido vaciado exitosamente",
+                icon: "success"
+              });
+              localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito
+              mostrarCarrito()    //muestro el carrito   
+            }
+          })
     }
-    carrito = [];   //dejo el array vacio
-    localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito
-    mostrarCarrito()    //muestro el carrito
 }
 
 function mostrarCarrito (){
