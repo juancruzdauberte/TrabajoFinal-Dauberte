@@ -1,9 +1,20 @@
 let carrito;
+let contador
 
 if (JSON.parse(localStorage.getItem("carrito"))) { //Si hay un carrito que traiga los productos que tiene
     carrito = JSON.parse(localStorage.getItem("carrito"))   
 } else {
     carrito = []
+}
+
+function botonVaciarVisible() {
+    const botonVaciar = document.getElementById("vaciarCarrito")
+    if (carrito.length === 0) {
+        botonVaciar.style.display = "none";
+    } else {
+        botonVaciar.style.display = "block";
+        botonVaciar.addEventListener("click", vaciarCarrito)
+    }
 }
 
 function alertaAgregarCarrito(producto, indiceProductoEncontrado, cantidadDelProductoAgregar) { //paso por parametro el producto, el indice del producto dentro del carrito y la cantidad del producto nuevo a agregar cuando no esta en el carrito
@@ -36,7 +47,7 @@ function alertaEliminarCarrito(productoEncontrado){ //paso por parametro el indi
             productoEliminar.cantidad -= 1
             localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito
             mostrarCarrito()    //muestro el carrito   
-
+            actualizarNumeroCarrito()
             if (productoEliminar.cantidad === 1) {   //si las unidades que tiene es igual a 1, sino que muestre la otra alerta
                 Swal.fire({
                     position: "top-end",
@@ -72,8 +83,10 @@ function alertaEliminarCarrito(productoEncontrado){ //paso por parametro el indi
                     text: "El producto ha sido eliminado del carrito",
                     icon: "success"
                   });
+                   
                   localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito
-                  mostrarCarrito()    //muestro el carrito   
+                  mostrarCarrito()    //muestro el carrito 
+                  actualizarNumeroCarrito()
                 }
               })
         }
@@ -102,6 +115,7 @@ function agregarAlCarrito (valorBoton) {
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));   //se actualiza el carrito
         mostrarCarrito()    //se muestra el carrito
+        actualizarNumeroCarrito()
     } else {
         console.log("NO se ecnontro el producto")
     }
@@ -117,13 +131,17 @@ function eliminarProductoDelCarrito (valorBoton){
             alertaEliminarCarrito(productoEncontrado)
         }else{
             alertaEliminarCarrito(productoEncontrado)
+            botonVaciarVisible() //si la ultima unidad del carrito se elimina, se oculta el boton de "vaciar carrito"
         }
+        
     }else{
         console.log("No se encuentra el producto en el carrito")
     }
 }
 
+  
 function vaciarCarrito (){
+
     if (carrito.length > 0) {
         Swal.fire({
             title: "Seguro que quieres vaciar el carrito?",
@@ -142,6 +160,8 @@ function vaciarCarrito (){
               });
               localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito
               mostrarCarrito()    //muestro el carrito   
+              actualizarNumeroCarrito()
+              botonVaciarVisible() //si se vacia el carrito se oculta el boton de "vaciar carrito"
             }
           })
     }
@@ -153,42 +173,79 @@ function mostrarCarrito (){
 
     if (carrito.length === 0) {
         productosEnCarrito.innerHTML = "<li>El carrito está vacío</li>";
-        return;
-    }
-
-    carrito.forEach(producto => {   //recorro todo el array del carrito para mostrarlos dinamicamente
-        const itemListaCarrito = document.createElement("li")
-        itemListaCarrito.id = "itemListaCarrito"
-
-        const cardCarrito = document.createElement("div")
-        cardCarrito.id = "contenidoCarrito"
-
-        const imgCarrito = document.createElement("img")
-        imgCarrito.src = producto.img
-        imgCarrito.alt = producto.nombre
-        imgCarrito.className = "imgCarrito"
-
-        const nombreYPrecioCarrito = document.createElement("p")
-        nombreYPrecioCarrito.innerText = `${producto.nombre} - ${producto.precio} - cantidad: ${producto.cantidad}`
-        nombreYPrecioCarrito.className = "nombreCarrito"
-
-        const botonEliminarProducto = document.createElement("button")
-        botonEliminarProducto.className = "botonEliminarProducto"
-        botonEliminarProducto.innerText = "Eliminar"
-        botonEliminarProducto.dataset.id = producto.id  //asocio el valor del ID del producto al boton
         
-        cardCarrito.appendChild(imgCarrito)
-        cardCarrito.appendChild(nombreYPrecioCarrito)
-        cardCarrito.appendChild(botonEliminarProducto)
-        itemListaCarrito.appendChild(cardCarrito)
-        productosEnCarrito.appendChild(itemListaCarrito)
-
-    })
+    }else{
+        carrito.forEach(producto => {   //recorro todo el array del carrito para mostrarlos dinamicamente
+            const itemListaCarrito = document.createElement("li")
+            itemListaCarrito.id = "itemListaCarrito"
+    
+            const cardCarrito = document.createElement("div")
+            cardCarrito.id = "contenidoCarrito"
+    
+            const imgCarrito = document.createElement("img")
+            imgCarrito.src = producto.img
+            imgCarrito.alt = producto.nombre
+            imgCarrito.className = "imgCarrito"
+    
+            const nombreYPrecioCarrito = document.createElement("p")
+            nombreYPrecioCarrito.innerText = `${producto.nombre} - ${producto.precio} - cantidad: ${producto.cantidad}`
+            nombreYPrecioCarrito.className = "nombreCarrito"
+    
+            const botonEliminarProducto = document.createElement("button")
+            botonEliminarProducto.className = "botonEliminarProducto"
+            botonEliminarProducto.innerText = "Eliminar"
+            botonEliminarProducto.dataset.id = producto.id  //asocio el valor del ID del producto al boton
+        
+            cardCarrito.appendChild(imgCarrito)
+            cardCarrito.appendChild(nombreYPrecioCarrito)
+            cardCarrito.appendChild(botonEliminarProducto)
+            itemListaCarrito.appendChild(cardCarrito)
+            productosEnCarrito.appendChild(itemListaCarrito)
+    
+        })
+    }
 
     document.querySelectorAll(".botonEliminarProducto").forEach(boton => {  //recorro todos los botones para encontrar cual se ha clickeado para la eliminacion del producto en el carrito
         boton.addEventListener("click",eliminarProductoDelCarrito)
-    })       
+    })    
+    
+    botonVaciarVisible() //como el carrito esta vacio oculto el boton de "vaciar carrito"
 }
 
-document.getElementById("botonCarrito").addEventListener("click",mostrarCarrito)
-document.getElementById("vaciarCarrito").addEventListener("click",vaciarCarrito)
+function actualizarNumeroCarrito(){
+    contador = document.querySelector("#contadorCarrito")
+    let nuevoContador = carrito.reduce((acc, producto) => acc + producto.cantidad, 0)
+    contador.innerText = nuevoContador
+    localStorage.setItem("contadorCarrito", nuevoContador);
+}
+
+function ventanaModalCarrito() {    //modal buscada de: https://didacticode.com/snippet-ventana-modal-modal-box-con-javascript/
+    // Ventana modal
+     const modal = document.getElementById("ventanaModal");
+ 
+     // Botón que abre el modal
+     const botonCarrito = document.getElementById("botonCarrito");
+ 
+     // Hace referencia al elemento <span> que tiene la X que cierra la ventana
+     const span = document.getElementsByClassName("cerrar")[0];
+ 
+     // Cuando el usuario hace click en el botón, se abre la ventana
+     botonCarrito.addEventListener("click",function() {
+        modal.style.display = "block";
+        mostrarCarrito()
+     });
+ 
+     // Si el usuario hace click en la x, la ventana se cierra
+     span.addEventListener("click",function() {
+     modal.style.display = "none";
+     });
+ 
+     // Si el usuario hace click fuera de la ventana, se cierra.
+     window.addEventListener("click",function(event) {
+     if (event.target == modal) {
+         modal.style.display = "none";
+     }
+     }); 
+}
+ 
+ventanaModalCarrito()

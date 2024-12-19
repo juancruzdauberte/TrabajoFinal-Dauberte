@@ -68,13 +68,16 @@
             </div>
 
             <div class="carrito">
+                <span id="contadorCarrito">0</span>
                 <button id="botonCarrito"><img src="../imgs/logos/carrito.png" alt="carrito"></button>
-
-                <ul id="listaCarrito">
-                
-                </ul>
-    
-                <button id="vaciarCarrito">Vaciar Carrito</button>
+                <div id="ventanaModal" class="modal">
+                    <div class="contenido-modal">
+                        <span class="cerrar">&times;</span>
+                        <h4>Carrito</h4>
+                        <ul id="listaCarrito"></ul>
+                        <button id="vaciarCarrito">Vaciar Carrito</button>
+                    </div>
+                  </div>
             </div>
         </section>
 
@@ -193,11 +196,14 @@
         <script>
             AOS.init();
         </script>
-        
+
+    <!-- Alertas -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- js -->
         <script src="../js/crearProducto.js"></script>
         <script src="../js/carrito.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
 
 </body>
 </html>

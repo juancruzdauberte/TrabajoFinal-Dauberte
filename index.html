@@ -68,7 +68,19 @@
                 </div>
     
                 <div class="carrito">
-                    <button><img src="imgs/logos/carrito.png" alt="carrito"></button>
+                    <span id="contadorCarrito">0</span>
+                    <button id="botonCarrito"><img src="../imgs/logos/carrito.png" alt="carrito"></button>
+                    <div id="ventanaModal" class="modal">
+                        <div class="contenido-modal">
+                            <span class="cerrar">&times;</span>
+                            <h4>Carrito</h4>
+                            <ul id="listaCarrito"></ul>
+                            <div class="contendor__vaciar">
+                                <button id="vaciarCarrito">Vaciar Carrito</button>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -99,11 +111,11 @@
             <div class="main__categorias-bg d-flex flex-column">
                 <h6>Categorias principales</h6>
                 <ul class="d-flex">
-                    <li><button id="buttonTapices">Tapices</button></li>
-                    <li><button>Accesorios</button></li>
-                    <li><button id="buttonColgantes">Colgantes</button></li>
-                    <li><button>Cerámica</button></li>
-                    <li><button id="buttonProductos">Todos los productos</button></li>
+                    <li><button id="todos" class="boton-categoria">Todos los productos</button></li>
+                    <li><button id="tapiz" class="boton-categoria">Tapices</button></li>
+                    <li><button id="colgante" class="boton-categoria">Colgantes</button></li>
+                    <li><button id="hogar" class="boton-categoria">Hogar</button></li>
+                    <li><button id="almohadon" class="boton-categoria">Almohadones</button></li>
                 </ul>
             </div>
             
@@ -139,7 +151,7 @@
             <section class="footer__nav" data-aos="zoom-in-up" data-aos-once="true">
     
                     <ul class="nav justify-content-center p-3">
-                        <li class="nav-item ">
+                        <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
@@ -175,7 +187,13 @@
         <script>
             AOS.init();
         </script>
+
+    <!-- Alertas -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>   
+   
+    <!--JS-->
+    <script src="js/carrito.js"></script>
+    <script src="js/redireccionProducto.js"></script>
     
-    <script src="homeButtons.js"></script>
 </body>
 </html>

@@ -7,27 +7,28 @@ async function getProductos() {   //funcion asincrona
     const respuesta = await fetch(url)  //hago la peticion a la url relativa
     const data = await respuesta.json() //guardo la respuesta en formato json
     productos = data  //productos es un array de ovjetos
-    mostrarProductosCategorias(data)
+    mostrarProductos(data)
+    filtarProductos() //filtracion de productos
     } catch (error) {
       console.error(error)
   }
 }
 
-function mostrarProductosCategorias(productosFiltrados) {
+function mostrarProductos(productosFiltrados) {
   // Limpio los contenedores antes de agregar nuevos productos
-  productosContenedor.innerHTML = "";
-
+  productosContenedor.innerHTML = " ";
   // Itero los productos y los agrego al DOM
   productosFiltrados.forEach(producto => crearProductoDOM(producto));
 }
 
-async function cargarYMostrarProductos() {
+async function cargarProductos() {
   await getProductos(); 
 }
 
 
-const botonesCategorias = document.querySelectorAll(".boton-categoria")
-const tituloProductos = document.querySelector("#titulo__productos")
+function filtarProductos() {
+  const botonesCategorias = document.querySelectorAll(".boton-categoria")
+  const tituloProductos = document.querySelector("#titulo__productos")
 
   botonesCategorias.forEach(boton => {
     boton.addEventListener("click", e => {
@@ -38,13 +39,15 @@ const tituloProductos = document.querySelector("#titulo__productos")
         console.log(productoCategoria)
         tituloProductos.innerText = productoCategoria.categoria.nombre //el titulo cuando se haga click en el boton de la categoria va a ser el mismo de la categoria seleccionada
         const productosFiltrados = productos.filter(producto => producto.categoria.id === e.currentTarget.id) //muestro los productos que tienen el mismo ID del boton y el mismo ID de la categoria
-        mostrarProductosCategorias(productosFiltrados)
+        mostrarProductos(productosFiltrados)
       }else{
         tituloProductos.innerText = "Todos los productos"
-        mostrarProductosCategorias(productos) //muestro todos los productos si la categoria es "todos"
+        mostrarProductos(productos) //muestro todos los productos si la categoria es "todos"
       }
     })
   })
+}
+
 
 const productosContenedor = document.getElementById("contenedor__productos")
 
@@ -106,4 +109,4 @@ function crearProductoDOM (producto){
     });
 } 
 
-cargarYMostrarProductos()
+cargarProductos()
