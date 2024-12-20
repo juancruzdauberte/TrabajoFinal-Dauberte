@@ -124,10 +124,17 @@
   gap: 10px;
   list-style: none;
 }
+#header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito {
   display: flex;
   align-items: center;
-  background-color: azure;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  gap: 20px;
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .imgCarrito {
   width: 50px;
@@ -135,24 +142,28 @@
   border-radius: 3px;
   object-fit: cover;
 }
-#header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .nombreYPrecioCarrito {
-  font-size: 0.8rem;
-  text-align: center;
+#header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .carrito__nombre-precio-cantidad {
+  font-size: 1rem;
+  padding-top: 10px;
 }
-#header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .botonEliminarProducto {
-  background-color: red;
-  color: white;
-  border-radius: 3px;
+#header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .botonEliminarProducto .imgBotonEliminar {
+  width: 30px;
 }
-#header .header__botones .carrito .modal .contenido-modal .contendor__vaciar {
+#header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total {
   display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
-#header .header__botones .carrito .modal .contenido-modal .contendor__vaciar #vaciarCarrito {
-  background-color: rgb(16, 15, 15);
-  color: white;
-  border-radius: 3px;
-  padding: 3px;
+#header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total #vaciarCarrito img {
+  width: 35px;
+  height: auto;
+}
+#header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total #totalCarrito {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(144, 112, 74);
 }
 #header .header__botones .lupa button {
   border: none;

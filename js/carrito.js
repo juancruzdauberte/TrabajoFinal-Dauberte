@@ -7,6 +7,11 @@ if (JSON.parse(localStorage.getItem("carrito"))) { //Si hay un carrito que traig
     carrito = []
 }
 
+
+function totalCarrito (){
+    const numeroTotal = document.getElementById("totalCarrito")
+}
+
 function botonVaciarVisible() {
     const botonVaciar = document.getElementById("vaciarCarrito")
     if (carrito.length === 0) {
@@ -121,10 +126,9 @@ function agregarAlCarrito (valorBoton) {
     }
 }
 
-function eliminarProductoDelCarrito (valorBoton){
-    const idProductoAEliminar = parseInt(valorBoton.target.dataset.id) //obtengo y convierto el valor del boton a un entero para hacer la condicion al eliminarlo
+function eliminarProductoDelCarrito (producto){
+    const idProductoAEliminar = parseInt(producto.currentTarget.id); //obtengo y convierto el valor del boton a un entero para hacer la condicion al eliminarlo
     const productoEncontrado = carrito.findIndex((el) => el.id === idProductoAEliminar); //Busco el indice del producto encontrado que se encuentra dentro del carrito 
-    console.log(productoEncontrado)
 
     if (productoEncontrado !== -1) {
         if (carrito[productoEncontrado].cantidad > 1) {
@@ -172,7 +176,7 @@ function mostrarCarrito (){
     productosEnCarrito.innerHTML = " "; // Limpia el contenido previo
 
     if (carrito.length === 0) {
-        productosEnCarrito.innerHTML = "<li>El carrito está vacío</li>";
+        productosEnCarrito.innerHTML = '<li>El carrito actualmente se encuentra vacío &#128532;. <a href="/pages/productos.html">VER PRODUCTOS</a></li>';
         
     }else{
         carrito.forEach(producto => {   //recorro todo el array del carrito para mostrarlos dinamicamente
@@ -188,14 +192,19 @@ function mostrarCarrito (){
             imgCarrito.className = "imgCarrito"
     
             const nombreYPrecioCarrito = document.createElement("p")
-            nombreYPrecioCarrito.innerText = `${producto.nombre} - ${producto.precio} - cantidad: ${producto.cantidad}`
-            nombreYPrecioCarrito.className = "nombreCarrito"
-    
+            nombreYPrecioCarrito.innerText = `${producto.nombre} - $${producto.precio} - Cantidad: ${producto.cantidad}`
+            nombreYPrecioCarrito.className = "carrito__nombre-precio-cantidad"
+            
+            const imgBotonEliminar = document.createElement("img");
+            imgBotonEliminar.src = "../imgs/logos/eliminarProducto.png";
+            imgBotonEliminar.alt = `Eliminar ${producto.nombre}`;
+            imgBotonEliminar.className = "imgBotonEliminar";
+
             const botonEliminarProducto = document.createElement("button")
             botonEliminarProducto.className = "botonEliminarProducto"
-            botonEliminarProducto.innerText = "Eliminar"
-            botonEliminarProducto.dataset.id = producto.id  //asocio el valor del ID del producto al boton
+            botonEliminarProducto.id = producto.id  //asocio el valor del ID del producto al boton
         
+            botonEliminarProducto.appendChild(imgBotonEliminar)
             cardCarrito.appendChild(imgCarrito)
             cardCarrito.appendChild(nombreYPrecioCarrito)
             cardCarrito.appendChild(botonEliminarProducto)

@@ -89,9 +89,6 @@ function crearProductoDOM (producto){
   botonAgregar.innerText = "Agregar al carrito"
   botonAgregar.className = "botonAgregarCarrito"
   botonAgregar.dataset.id = producto.id;  //asocio el ID del producto al boton
- 
-  
-
    
       carta.appendChild(imgProducto)
       cardContenido.appendChild(titulo)
