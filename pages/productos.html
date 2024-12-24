@@ -28,6 +28,9 @@
     <!-- Css -->
         <link rel="stylesheet" href="../css/style.css">
 
+        <!-- Alerta Toast -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 </head>
 
 <body>
@@ -77,7 +80,7 @@
                         <ul id="listaCarrito"></ul>
                         <div class="contenedor__vaciar-total">
                             <button id="vaciarCarrito"><img src="../imgs/logos/vaciarCarrito.png" alt="vaciar carrito"></button>
-                            <span id="totalCarrito">$TOTAL: 0</span>
+                            <span id="totalCarrito">TOTAL: $0</span>
                         </div>
                     </div>
                   </div>
@@ -202,11 +205,12 @@
 
     <!-- Alertas -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- js -->
         <script src="../js/crearProducto.js"></script>
         <script src="../js/carrito.js"></script>
         
-
+       
 </body>
 </html>

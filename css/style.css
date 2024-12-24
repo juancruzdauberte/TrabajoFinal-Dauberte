@@ -41,16 +41,27 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-right: 20px;
+  padding-right: 30px;
 }
-#header .header__botones .carrito #contadorCarrito span {
+#header .header__botones .carrito {
+  position: relative;
   display: inline-block;
+}
+#header .header__botones .carrito #contadorCarrito {
   position: absolute;
+  top: -15px;
+  right: -18px;
+  background-color: #8d5f23;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 30%;
+  display: flex;
   align-items: center;
-  padding: 2px;
-  top: 0;
-  right: 0;
-  margin: 5px 11px 0px 10px;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
 }
 #header .header__botones .carrito button {
   border: none;
@@ -163,7 +174,7 @@
 #header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total #totalCarrito {
   font-size: 1rem;
   font-weight: bold;
-  color: rgb(144, 112, 74);
+  color: rgb(0, 0, 0);
 }
 #header .header__botones .lupa button {
   border: none;
@@ -578,7 +589,9 @@ h2 {
   padding: 30px 0px 0px 40px;
 }
 #main .main__redes-form .main__form form input, #main .main__redes-form .main__form form textarea {
+  resize: none;
   width: 90%;
+  field-sizing: content;
 }
 #main .main__redes-form .main__form h4 {
   text-align: center;

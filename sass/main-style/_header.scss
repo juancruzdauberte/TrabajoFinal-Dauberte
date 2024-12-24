@@ -58,19 +58,27 @@
 
     .header__botones{
         @include modelo-botones(display,align-items, gap);
-        padding-right: 20px;
+        padding-right: 30px;
 
         .carrito{
+            position: relative;
+            display: inline-block;
             #contadorCarrito{
-                span{
-                    display: inline-block;
-                    position: absolute;
-                    align-items: center;
-                    padding: 2px;
-                    top: 0;
-                    right: 0;
-                    margin: 5px 11px 0px 10px;
-                }
+                position: absolute;
+                top: -15px;
+                right: -18px;
+                background-color: #8d5f23; 
+                color: #ffffff; 
+                font-size: 12px; 
+                font-weight: bold; 
+                padding: 4px 8px; 
+                border-radius: 30%; 
+                // box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 20px; 
+                height: 20px; 
             }
             
             button{
@@ -182,7 +190,7 @@
                         #totalCarrito {
                             font-size: 1rem; 
                             font-weight: bold;
-                            color: rgb(144, 112, 74); 
+                            color: rgb(0, 0, 0); 
                         }
                     }
                     

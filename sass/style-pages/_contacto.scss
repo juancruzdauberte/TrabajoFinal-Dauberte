@@ -52,7 +52,9 @@
             form{
                 padding: 30px 0px 0px 40px;
                 input,textarea{
+                    resize: none;
                     width: 90%;
+                    field-sizing: content;
                 }
             }
 

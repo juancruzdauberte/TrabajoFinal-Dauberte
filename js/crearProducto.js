@@ -61,7 +61,7 @@ function crearProductoDOM (producto){
 
   const imgProducto = document.createElement("img")
   imgProducto.src = producto.img
-  imgProducto.alt = producto.nombre;
+  imgProducto.alt = `${producto.nombre} - ${producto.categoria}`
   imgProducto.id = "imgProducto"
 
 
