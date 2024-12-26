@@ -17,8 +17,15 @@ async function getProductos() {   //funcion asincrona
 function mostrarProductos(productosFiltrados) {
   // Limpio los contenedores antes de agregar nuevos productos
   productosContenedor.innerHTML = " ";
-  // Itero los productos y los agrego al DOM
-  productosFiltrados.forEach(producto => crearProductoDOM(producto));
+
+  if (productosFiltrados.length === 0) {
+    noResultado.style.display = "block"
+  }else{
+    productosFiltrados.forEach(producto => crearProductoDOM(producto));   // Itero los productos y los agrego al DOM
+    noResultado.style.display = "none"
+  }
+
+
 }
 
 async function cargarProductos() {
@@ -35,9 +42,9 @@ function filtarProductos() {
       botonesCategorias.forEach(boton => boton.classList.remove("active"))
       e.currentTarget.classList.add("active")
       if (e.currentTarget.id != "todos") {
-        const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id) //busqueda de el id de la categoria con el id del boton, deben ser iguales para que sean la misma categoria
-        console.log(productoCategoria)
-        tituloProductos.innerText = productoCategoria.categoria.nombre //el titulo cuando se haga click en el boton de la categoria va a ser el mismo de la categoria seleccionada
+        const tituloCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id) //busqueda de el id de la categoria con el id del boton, deben ser iguales para que sean la misma categoria
+        console.log(tituloCategoria)
+        tituloProductos.innerText = tituloCategoria.categoria.nombre //el titulo cuando se haga click en el boton de la categoria va a ser el mismo de la categoria seleccionada
         const productosFiltrados = productos.filter(producto => producto.categoria.id === e.currentTarget.id) //muestro los productos que tienen el mismo ID del boton y el mismo ID de la categoria
         mostrarProductos(productosFiltrados)
       }else{
@@ -48,6 +55,18 @@ function filtarProductos() {
   })
 }
 
+const inputBuscador = document.getElementById("inputBuscador")
+const noResultado = document.getElementById("noResultado")
+
+inputBuscador.addEventListener("input", buscadorProductos)
+
+function buscadorProductos() {
+    const valorBuscador = inputBuscador.value.toLowerCase() //el valor lo paso a miniscula para que pueda hacer efectiva la busqueda
+    console.log(valorBuscador)
+    const filtradoProducto = productos.filter(producto => producto.nombre.toLowerCase().startsWith(valorBuscador))  //filtro los productos, paso el producto a miniscula y uso el metodo startsWith del valor que se tipea
+
+    mostrarProductos(filtradoProducto)
+}
 
 const productosContenedor = document.getElementById("contenedor__productos")
 

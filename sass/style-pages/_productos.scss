@@ -22,13 +22,13 @@
     .main__buscador{
         display: flex;
         justify-content: center;
-        padding: 50px 0px 50px 0px;
+        padding: 25px 0px 25px 0px;
         input{
             width: 700px;
         }
     }
     .main__aside-productos{ 
-        @include flex-direction-align(flex, column, center, 100px);
+        @include flex-direction-align(flex, column, center, 70px);
         padding: 50px 0px 100px 0px;
         .main__categorias{
             .categorias__filtros{
@@ -144,6 +144,13 @@
 
                     }   
                 
+            }
+
+            #noResultado{
+                display:inline-block;
+                justify-content: center;
+                font-size: 1.1rem;
+                font-weight: 500;
             }
         }
     }

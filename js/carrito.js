@@ -2,23 +2,6 @@ let carrito;
 
 if (JSON.parse(localStorage.getItem("carrito"))) { //Si hay un carrito que traiga los productos que tiene
     carrito = JSON.parse(localStorage.getItem("carrito"))   
-
-    window.addEventListener("DOMContentLoaded", () => {     //al refrescar o cambiar de pagina que sigan almacenados los valores de total y contador del carrito
-        const numeroTotal = document.getElementById("totalCarrito");
-        const totalGuardado = localStorage.getItem("totalCarrito");
-        const contador = document.querySelector("#contadorCarrito")
-        const contadorGuardado = localStorage.getItem("contador")
-
-        if (totalGuardado) {
-            numeroTotal.innerText = `TOTAL: $${totalGuardado}`;
-        }
-        if (contadorGuardado) {
-            contador.innerText = contadorGuardado
-        }
-    });
-
-    ventanaModalCarrito()
-
 } else {
     carrito = []
 }
@@ -308,3 +291,18 @@ function ventanaModalCarrito() {    //modal buscada de: https://didacticode.com/
      }); 
 }
  
+window.addEventListener("DOMContentLoaded", () => {     //al refrescar o cambiar de pagina que sigan almacenados los valores de total y contador del carrito
+    const numeroTotal = document.getElementById("totalCarrito");
+    const totalGuardado = localStorage.getItem("totalCarrito");
+    const contador = document.querySelector("#contadorCarrito")
+    const contadorGuardado = localStorage.getItem("contador")
+
+    if (totalGuardado) {
+        numeroTotal.innerText = `TOTAL: $${totalGuardado}`;
+    }
+    if (contadorGuardado) {
+        contador.innerText = contadorGuardado
+    }
+});
+
+ventanaModalCarrito()
