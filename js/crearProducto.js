@@ -7,14 +7,14 @@ async function getProductos() {   //funcion asincrona
     const respuesta = await fetch(url)  //hago la peticion a la url relativa
     const data = await respuesta.json() //guardo la respuesta en formato json
     productos = data  //productos es un array de ovjetos
-    mostrarProductos(data)
+    mostrarProductosFiltrados(data)
     filtarProductos() //filtracion de productos
     } catch (error) {
       console.error(error)
   }
 }
 
-function mostrarProductos(productosFiltrados) {
+function mostrarProductosFiltrados(productosFiltrados) {
   // Limpio los contenedores antes de agregar nuevos productos
   productosContenedor.innerHTML = " ";
 
@@ -42,14 +42,14 @@ function filtarProductos() {
       botonesCategorias.forEach(boton => boton.classList.remove("active"))
       e.currentTarget.classList.add("active")
       if (e.currentTarget.id != "todos") {
-        const tituloCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id) //busqueda de el id de la categoria con el id del boton, deben ser iguales para que sean la misma categoria
+        const tituloCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id) //busqueda del id de la categoria con el id del boton, deben ser iguales para que sean la misma categoria
         console.log(tituloCategoria)
         tituloProductos.innerText = tituloCategoria.categoria.nombre //el titulo cuando se haga click en el boton de la categoria va a ser el mismo de la categoria seleccionada
         const productosFiltrados = productos.filter(producto => producto.categoria.id === e.currentTarget.id) //muestro los productos que tienen el mismo ID del boton y el mismo ID de la categoria
-        mostrarProductos(productosFiltrados)
+        mostrarProductosFiltrados(productosFiltrados)
       }else{
         tituloProductos.innerText = "Todos los productos"
-        mostrarProductos(productos) //muestro todos los productos si la categoria es "todos"
+        mostrarProductosFiltrados(productos) //muestro todos los productos si la categoria es "todos"
       }
     })
   })
@@ -63,9 +63,9 @@ inputBuscador.addEventListener("input", buscadorProductos)
 function buscadorProductos() {
     const valorBuscador = inputBuscador.value.toLowerCase() //el valor lo paso a miniscula para que pueda hacer efectiva la busqueda
     console.log(valorBuscador)
-    const filtradoProducto = productos.filter(producto => producto.nombre.toLowerCase().startsWith(valorBuscador))  //filtro los productos, paso el producto a miniscula y uso el metodo startsWith del valor que se tipea
+    const productoFiltrado = productos.filter(producto => producto.nombre.toLowerCase().startsWith(valorBuscador))  //filtro los productos, paso el producto a miniscula y uso el metodo startsWith del valor que se tipea
 
-    mostrarProductos(filtradoProducto)
+    mostrarProductosFiltrados(productoFiltrado)
 }
 
 const productosContenedor = document.getElementById("contenedor__productos")

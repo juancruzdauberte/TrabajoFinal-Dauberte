@@ -51,17 +51,16 @@
                                 &:hover{
                                     color: $color-hover-caregorias;
                                 }
-                            }
-                            .active{
-                                background-color: #2e2e319a;
-                                color: #fff;
-                                padding: 2px 10px 2px 10px;
-                                border-radius: 2px;
-                                &:hover{
+                                &.active{
+                                    background-color: #2e2e319a;
                                     color: #fff;
+                                    padding: 2px 10px 2px 10px;
+                                    border-radius: 2px;
+                                    &:hover{
+                                        color: #fff;
+                                    }
                                 }
                             }
-
                         }
                 }
             }
@@ -75,9 +74,8 @@
                     @include gap-productos(60px, 100px);
                    
                     .card {
-                        min-width: 290px;
+                        min-width: 280px;
                         text-align: center;
-                        border-radius: 0px;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -117,7 +115,7 @@
                                 border: none;
                                 width: 130px;
                                 border-radius: 5px;
-                                padding: 8px 12px; 
+                                padding: 8px 10px; 
                                 font-size: 0.77rem;
                                 transition: background-color 0.2s ease;
                                 margin-bottom: 20px;
@@ -131,10 +129,9 @@
                                 @include flex-direction-align (flex, row, center, 0px);
                                 gap: 10px;
                                 justify-content: center;
-                                p{
-                                    padding-top: 15px;
-                                }
+                                padding-bottom: 15px;
                                 .cantidadInput{
+                                    text-align: center;
                                     width: 30px;
                                     height: 30px;
                                     font-size: 0.8rem;  

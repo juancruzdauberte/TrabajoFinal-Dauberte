@@ -7,4 +7,11 @@ document.getElementById("formulario").addEventListener("submit", e =>{
     console.log(mensaje.value)
     email.value = ""
     mensaje.value = ""
+
+    Swal.fire({
+        title: "Mensaje enviado exitosamente!",
+        icon: "success",
+        draggable: true,
+        timer: 1000
+      });
 })
