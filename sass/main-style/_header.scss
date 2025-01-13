@@ -20,14 +20,20 @@
     .header__titulo{
         padding-left: 20px;
         h1{
-            color: $color-h1;
-            font-size: 1.7rem;
-            font-weight: bold;
-            text-align: start;
-            span{
-                display: block;
-                padding-left: 3rem;
+            a{
+                text-decoration: none;
+                color: $color-h1;
+                font-size: 1.7rem;
+                font-weight: bold;
+                span{
+                    display: block;
+                    padding-left: 3rem;
+                }
+                &:hover{
+                    text-decoration: underline;
+                }
             }
+
         }
     }
 

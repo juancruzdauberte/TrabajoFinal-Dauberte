@@ -9,15 +9,18 @@
 #header .header__titulo {
   padding-left: 20px;
 }
-#header .header__titulo h1 {
+#header .header__titulo h1 a {
+  text-decoration: none;
   color: #7c5e45;
   font-size: 1.7rem;
   font-weight: bold;
-  text-align: start;
 }
-#header .header__titulo h1 span {
+#header .header__titulo h1 a span {
   display: block;
   padding-left: 3rem;
+}
+#header .header__titulo h1 a:hover {
+  text-decoration: underline;
 }
 #header #nav {
   display: flex;
@@ -735,27 +738,11 @@ h2 {
   list-style: none;
   font-size: 0.8rem;
 }
-#main .main__aside-productos .main__categorias .categorias__filtros .categorias li button {
-  border: none;
-  color: black;
-}
-#main .main__aside-productos .main__categorias .categorias__filtros .categorias li button:hover {
-  color: rgba(105, 102, 102, 0.679);
-}
-#main .main__aside-productos .main__categorias .categorias__filtros .categorias li button.active {
-  background-color: rgba(46, 46, 49, 0.6039215686);
-  color: #fff;
-  padding: 2px 10px 2px 10px;
-  border-radius: 2px;
-}
-#main .main__aside-productos .main__categorias .categorias__filtros .categorias li button.active:hover {
-  color: #fff;
-}
 #main .main__aside-productos .main__productos {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 80px;
+  row-gap: 50px;
 }
 #main .main__aside-productos .main__productos #contenedor__productos {
   display: flex;

@@ -34,22 +34,49 @@ async function cargarProductos() {
 
 
 function filtarProductos() {
-  const botonesCategorias = document.querySelectorAll(".boton-categoria")
-  const tituloProductos = document.querySelector("#titulo__productos")
+  const checkboxCategoria = document.querySelectorAll(".checkbox-categoria")
+  const tituloCategoria = document.querySelector("#titulo__productos")
+  document.querySelector("#todos").checked = true;  //por default selecciona todos los productos el checkbox
 
-  botonesCategorias.forEach(boton => {
-    boton.addEventListener("click", e => {
-      botonesCategorias.forEach(boton => boton.classList.remove("active"))
-      e.currentTarget.classList.add("active")
-      if (e.currentTarget.id != "todos") {
-        const tituloCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id) //busqueda del id de la categoria con el id del boton, deben ser iguales para que sean la misma categoria
-        console.log(tituloCategoria)
-        tituloProductos.innerText = tituloCategoria.categoria.nombre //el titulo cuando se haga click en el boton de la categoria va a ser el mismo de la categoria seleccionada
-        const productosFiltrados = productos.filter(producto => producto.categoria.id === e.currentTarget.id) //muestro los productos que tienen el mismo ID del boton y el mismo ID de la categoria
-        mostrarProductosFiltrados(productosFiltrados)
+  const categorias = {
+    colgante: "Colgantes",
+    tapiz: "Tapices",     //array de titulos de categorias para relacionarlo con categoria.id y mostrar el nombre
+    hogar: "Hogar",
+    almohadon: "Almohadones",
+  };
+
+  checkboxCategoria.forEach(checkbox => {   //recorro todos los checkbox
+    checkbox.addEventListener("click", e => {
+      const todosCheckbox = document.querySelector("#todos");
+      
+      if (e.currentTarget.id === "todos") {
+        checkboxCategoria.forEach((cb)=> {
+          if (cb.id !== "todos") {  //si se selecciona todos, deselecciono las demas categorias
+            cb.checked = false
+          }
+        })
+        tituloCategoria.innerText = "Todos los productos";
+        mostrarProductosFiltrados(productos);
       }else{
-        tituloProductos.innerText = "Todos los productos"
-        mostrarProductosFiltrados(productos) //muestro todos los productos si la categoria es "todos"
+        todosCheckbox.checked = false //si selecciona otra categoria se deselecciona todos
+        const categoriasSeleccionadas = Array.from(checkboxCategoria) //creo array de las categorias que se sleccionen en los checkbox, filtra los checkbox seleccionados y que sea distinto a todos y luego mapea los checkbox seleccionados en base al id que contiene el mismo
+        .filter((cb) => cb.checked && cb.id !== "todos")
+        .map((cb) => cb.id);
+
+        if (categoriasSeleccionadas.length === 0) { // si no hay ninguna categoría seleccionada vuelve a todos
+          todosCheckbox.checked = true;
+          tituloCategoria.innerText = "Todos los productos";
+          mostrarProductosFiltrados(productos);
+        } else {
+          const productosFiltrados = productos.filter((producto) =>   // filtro los productos que contengan la categoria que esta seleccionada actualmente
+            categoriasSeleccionadas.includes(producto.categoria.id)
+          );
+
+          const nombresCategorias = categoriasSeleccionadas.map((nombre) => categorias[nombre]) //crea un nuevo array de nombres de la categoria en base a las categorias que se seleccionen
+          console.log(nombresCategorias)
+          tituloCategoria.innerText = nombresCategorias.join(", ");
+          mostrarProductosFiltrados(productosFiltrados);
+        }
       }
     })
   })
