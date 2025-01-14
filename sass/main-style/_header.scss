@@ -11,6 +11,13 @@
     background-color: $bg-header-footer;
 }
 
+                    
+@keyframes shake {
+    0%, 12% { transform: rotate(0); }
+    2%, 6%, 10% { transform: translateY(-2px) rotate(-2deg); }
+    4%, 8% { transform: translateY(2px) rotate(2deg); }
+}
+
 #header{
     background-color: $bg-header-footer;
     display: flex;
@@ -165,7 +172,8 @@
                                 background-color: rgb(255, 255, 255);
                                 min-height: 80px;
                                 box-sizing: border-box;
-                                
+                                font-size: 0.9rem;
+
                                 .imgCarrito {
                                     width: 60px;
                                     height: auto; 
@@ -176,12 +184,26 @@
                                 .carrito__nombre-precio-cantidad {
                                     display: inline-block;
                                     margin: auto;
-                                    font-size: 0.9rem;
+                                    
                                 }
-                    
+                                
+                                .divCantidadInput{
+                                    display: flex;
+                                    align-items: center;
+                                    padding: 0px 40px 0px 0px;
+                                    .cantidadTexto{
+                                        padding: 15px 5px 0px 0px;                
+                                    }
+                                    .cantidadInput{
+                                        text-align: center;
+                                        width: 35px;
+                                    }
+                                }
+
                                 .botonEliminarProducto {
                                     display: flex;
                                     align-items: center;
+                                    background-color: rgb(255, 255, 255);
                     
                                     .imgBotonEliminar {
                                         width: 30px;
@@ -205,12 +227,6 @@
                                 transition: 0.4s;
                                 animation: shake 4s infinite;
                     
-                                @keyframes shake {
-                                    0%, 12% { transform: rotate(0); }
-                                    2%, 6%, 10% { transform: translateY(-2px) rotate(-2deg); }
-                                    4%, 8% { transform: translateY(2px) rotate(2deg); }
-                                }
-                    
                                 &:hover, &:focus {
                                     box-shadow: inset 16em 0 0 0 rgba(255, 255, 255, 0.392);
                                 }
@@ -219,19 +235,31 @@
                     }
                     
                     .contenedor__vaciar-total {
-                        display: flex;
-                        align-items: center;
                         #vaciarCarrito {
                             img {
                                 width: 35px; 
                                 height: auto; 
                             }
                         }
-                    
+                        
                         #totalCarrito {
                             font-size: 1rem; 
                             font-weight: bold;
                             color: rgb(0, 0, 0); 
+                        }
+
+                        #btn-comprar{
+                            background-color: #000000;
+                            color: #ffffff;
+                            padding: 5px 10px 5px 10px;
+                            font-weight: bold;
+                            border-radius: 5px;
+                            transition: 0.4s;
+                            animation: shake 4s infinite;
+                
+                            &:hover, &:focus {
+                                box-shadow: inset 2em 0 0 0 rgba(255, 255, 255, 0.392);
+                            }
                         }
                     }
                 }

@@ -36,6 +36,7 @@ function alertaAgregarCarrito(indexEncontrado) { //paso por parametro el product
                     const modal = document.getElementById("ventanaModal");
                     modal.style.display = "block";
                     mostrarCarrito()
+                    actualizarNumeroCarrito()
                 } // Callback after click
               }).showToast();
 
@@ -65,64 +66,6 @@ function alertaAgregarCarrito(indexEncontrado) { //paso por parametro el product
     }
 }
 
-function alertaEliminarCarrito(indexEncontrado){ //paso por parametro el indice del producto encontrado en el carrito
-    if (indexEncontrado !== -1) {
-        const productoEliminar = carrito[indexEncontrado]
-            if (productoEliminar.cantidad === 1) {
-                Swal.fire({
-                    title: "¿Seguro que quieres eliminar el producto del carrito?",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "¡Sí, eliminar!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        carrito.splice(carrito.indexOf(productoEliminar), 1); // Elimina el producto completamente si la cantidad es 1
-                        Swal.fire({
-                            title: "¡Eliminado!",
-                            text: "El producto ha sido eliminado del carrito.",
-                            icon: "success"
-                        });
-                        
-                        localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualiza el carrito
-                        mostrarCarrito(); // Muestra el carrito actualizado
-                        actualizarNumeroCarrito(); // Actualiza el número del carrito
-                    }
-                });
-            } else {
-                // Si no es el último producto, resta una unidad y muestra Toastify
-                productoEliminar.cantidad -= 1; // Resta una unidad del producto
-                Toastify({
-                    text: "Unidad eliminada del carrito.",
-                    duration: 1500,
-                    destination: "",
-                    newWindow: true,
-                    close: true,
-                    offset: {
-                        x: 0, // Eje horizontal
-                        y: 60 // Eje vertical
-                    },
-                    gravity: "top", // `top` o `bottom`
-                    position: "right", // `left`, `center` o `right`
-                    stopOnFocus: true, // Evita cerrar el Toast al pasar el mouse
-                    style: {
-                        background: "linear-gradient(to right, rgb(234, 13, 13), rgb(219, 36, 36))",
-                    },
-                    onClick: function () {
-                        const modal = document.getElementById("ventanaModal");
-                        modal.style.display = "block";
-                        mostrarCarrito();
-                    } // Callback al hacer clic
-                }).showToast();
-            
-                localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualiza el carrito
-                mostrarCarrito(); // Muestra el carrito actualizado
-                actualizarNumeroCarrito(); // Actualiza el número del carrito
-            }
-    }
-}
-
 function agregarAlCarrito (producto) {
 
     const productoId = parseInt(producto.target.dataset.id);   // Obtengo el ID del producto desde el dataset para hacer la busqueda
@@ -136,7 +79,7 @@ function agregarAlCarrito (producto) {
         if (index !== -1) {  //si es distinto de -1 es pq esta en el carrito
             carrito[index].cantidad += cantidadDelProducto;  // Si el producto ya está en el carrito, incremento la cantidad seleccionada desde el input de cantidad
         } else {
-                carrito.push({  // Si no está en el carrito (findIndex devuelve -1), lo agrego con cantidad 1
+                carrito.push({  // Si no está en el carrito (findIndex devuelve -1)
                 ...productoEncontrado,
                 cantidad: cantidadDelProducto //la cantidad sera la que se haya seleccionado en el input
             });
@@ -145,8 +88,7 @@ function agregarAlCarrito (producto) {
         localStorage.setItem("carrito", JSON.stringify(carrito));   //se actualiza el carrito
         mostrarCarrito()    //se muestra el carrito
         actualizarNumeroCarrito()
-
-        obtenerCantidad.value = 1;
+        obtenerCantidad.value = 1;  // al agregar el producto al carrito indico que la cantidad del producto sea 1
     } else {
         console.log("NO se encontro el producto")
     }
@@ -155,11 +97,29 @@ function agregarAlCarrito (producto) {
 function eliminarProductoDelCarrito (producto){
     const idProductoAEliminar = parseInt(producto.currentTarget.id); //obtengo y convierto el valor del boton a un entero para hacer la condicion al eliminarlo
     const index = carrito.findIndex((el) => el.id === idProductoAEliminar); //Busco el indice del producto encontrado que se encuentra dentro del carrito 
-
+    console.log(index)
     if (index !== -1) {
-        if (carrito[index].cantidad < 1) {
-        }
-        alertaEliminarCarrito(index)
+        Swal.fire({
+            title: "¿Seguro que quieres eliminar el producto del carrito?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "¡Sí, eliminar!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                carrito.splice(carrito.indexOf(carrito[index]), 1); // Elimina el producto completamente del carrito
+                Swal.fire({
+                    title: "¡Eliminado!",
+                    text: "El producto ha sido eliminado del carrito.",
+                    icon: "success"
+                });
+                
+                localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualiza el carrito
+                mostrarCarrito(); // Muestra el carrito actualizado
+                actualizarNumeroCarrito()
+            }
+        }); 
     }else{
         console.log("No se encuentra el producto en el carrito")
     }
@@ -232,13 +192,40 @@ function mostrarCarrito (){
             imgCarrito.className = "imgCarrito"
     
             const nombreYPrecioCarrito = document.createElement("p")
-            nombreYPrecioCarrito.innerText = `${producto.nombre} - $${producto.precio} - Cantidad: ${producto.cantidad}`
+            nombreYPrecioCarrito.innerText = `${producto.nombre} - $${producto.precio}`
             nombreYPrecioCarrito.className = "carrito__nombre-precio-cantidad"
             
             const imgBotonEliminar = document.createElement("img");
             imgBotonEliminar.src = "../imgs/logos/eliminarProducto.png";
             imgBotonEliminar.alt = `Eliminar ${producto.nombre}`;
             imgBotonEliminar.className = "imgBotonEliminar";
+
+            const divCantidadInput = document.createElement("div")
+            divCantidadInput.className = "divCantidadInput"
+
+            const cantidadTexto = document.createElement("p")
+            cantidadTexto.innerText = "Cantidad: "
+            cantidadTexto.className = "cantidadTexto"
+
+            const cantidadInput = document.createElement("input")
+            cantidadInput.className = "cantidadInput"
+            cantidadInput.min = "1";
+            cantidadInput.type = "number";
+            cantidadInput.value = producto.cantidad
+
+            cantidadInput.addEventListener("input", e => {
+                const nuevaCantidad = parseInt(e.target.value)
+                console.log(nuevaCantidad)
+                const index = carrito.findIndex(el => el.id === producto.id)    //busco el index del producto en el carrito
+
+                if (index !== -1) { //si el producto esta en el carrito
+                    carrito[index].cantidad = nuevaCantidad //actualizo la cantidad
+                    localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualiza el carrito en el almacenamiento local
+                    console.log(carrito)
+                    mostrarCarrito();  // Muestra el carrito actualizado
+                    actualizarNumeroCarrito()
+                }
+            })
 
             const botonEliminarProducto = document.createElement("button")
             botonEliminarProducto.className = "botonEliminarProducto"
@@ -247,6 +234,9 @@ function mostrarCarrito (){
             botonEliminarProducto.appendChild(imgBotonEliminar)
             cardCarrito.appendChild(imgCarrito)
             cardCarrito.appendChild(nombreYPrecioCarrito)
+            divCantidadInput.appendChild(cantidadTexto)
+            divCantidadInput.appendChild(cantidadInput)
+            cardCarrito.appendChild(divCantidadInput)
             cardCarrito.appendChild(botonEliminarProducto)
             itemListaCarrito.appendChild(cardCarrito)
         })

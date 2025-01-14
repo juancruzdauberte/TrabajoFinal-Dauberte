@@ -1,4 +1,15 @@
 @charset "UTF-8";
+@keyframes shake {
+  0%, 12% {
+    transform: rotate(0);
+  }
+  2%, 6%, 10% {
+    transform: translateY(-2px) rotate(-2deg);
+  }
+  4%, 8% {
+    transform: translateY(2px) rotate(2deg);
+  }
+}
 #header {
   background-color: rgb(242, 231, 231);
   display: flex;
@@ -155,6 +166,7 @@
   background-color: rgb(255, 255, 255);
   min-height: 80px;
   box-sizing: border-box;
+  font-size: 0.9rem;
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .imgCarrito {
   width: 60px;
@@ -165,11 +177,23 @@
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .carrito__nombre-precio-cantidad {
   display: inline-block;
   margin: auto;
-  font-size: 0.9rem;
+}
+#header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .divCantidadInput {
+  display: flex;
+  align-items: center;
+  padding: 0px 40px 0px 0px;
+}
+#header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .divCantidadInput .cantidadTexto {
+  padding: 15px 5px 0px 0px;
+}
+#header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .divCantidadInput .cantidadInput {
+  text-align: center;
+  width: 35px;
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .botonEliminarProducto {
   display: flex;
   align-items: center;
+  background-color: rgb(255, 255, 255);
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .botonEliminarProducto .imgBotonEliminar {
   width: 30px;
@@ -189,23 +213,8 @@
   transition: 0.4s;
   animation: shake 4s infinite;
 }
-@keyframes shake {
-  0%, 12% {
-    transform: rotate(0);
-  }
-  2%, 6%, 10% {
-    transform: translateY(-2px) rotate(-2deg);
-  }
-  4%, 8% {
-    transform: translateY(2px) rotate(2deg);
-  }
-}
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #btnVerProductos:hover, #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #btnVerProductos:focus {
   box-shadow: inset 16em 0 0 0 rgba(255, 255, 255, 0.392);
-}
-#header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total {
-  display: flex;
-  align-items: center;
 }
 #header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total #vaciarCarrito img {
   width: 35px;
@@ -215,6 +224,18 @@
   font-size: 1rem;
   font-weight: bold;
   color: rgb(0, 0, 0);
+}
+#header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total #btn-comprar {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 5px 10px 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.4s;
+  animation: shake 4s infinite;
+}
+#header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total #btn-comprar:hover, #header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total #btn-comprar:focus {
+  box-shadow: inset 2em 0 0 0 rgba(255, 255, 255, 0.392);
 }
 #header .header__botones .lupa button {
   border: none;
