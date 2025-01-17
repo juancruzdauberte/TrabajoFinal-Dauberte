@@ -14,7 +14,7 @@ function totalCarrito (){
     localStorage.setItem("totalCarrito", nuevoTotal);
 }
 
-function alertaAgregarCarrito(indexEncontrado) { //paso por parametro el producto, el indice del producto dentro del carrito y la cantidad del producto nuevo a agregar cuando no esta en el carrito
+function alertaAgregarCarrito(indexEncontrado) { //paso por parametro el producto
     if (indexEncontrado === -1) {
             Toastify({
                 text: "Producto añadido al carrito",
@@ -156,7 +156,7 @@ function vaciarCarrito (){
 
 function mostrarCarrito (){
     const productosEnCarrito = document.getElementById("listaCarrito")
-    productosEnCarrito.innerHTML = " "; // Limpia el contenido previo
+    productosEnCarrito.innerHTML = " "; // limpia el contenido previo 
 
     const divVaciarTotal = document.querySelector(".contenedor__vaciar-total")
 

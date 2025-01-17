@@ -6,7 +6,7 @@ async function getProductos() {   //funcion asincrona
   try {
     const respuesta = await fetch(url)  //hago la peticion a la url relativa
     const data = await respuesta.json() //guardo la respuesta en formato json
-    productos = data  //productos es un array de ovjetos
+    productos = data  //productos es un array de objetos
     mostrarProductosFiltrados(data)
     filtarProductos() //filtracion de productos
     } catch (error) {
@@ -24,8 +24,6 @@ function mostrarProductosFiltrados(productosFiltrados) {
     productosFiltrados.forEach(producto => crearProductoDOM(producto));   // Itero los productos y los agrego al DOM
     noResultado.style.display = "none"
   }
-
-
 }
 
 async function cargarProductos() {
@@ -44,7 +42,7 @@ function filtarProductos() {
     hogar: "Hogar",
     almohadon: "Almohadones",
   };
-
+      
   checkboxCategoria.forEach(checkbox => {   //recorro todos los checkbox
     checkbox.addEventListener("click", e => {
       const todosCheckbox = document.querySelector("#todos");

@@ -102,6 +102,9 @@
   background-color: rgba(0, 0, 0, 0.5); /* Color negro con opacidad del 50% */
 }
 #header .header__botones .carrito .modal .contenido-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative; /* Relativo con respecto al contenedor -modal- */
   background-color: white;
   margin: auto; /* Centrada */
@@ -134,6 +137,10 @@
   }
 }
 #header .header__botones .carrito .modal .contenido-modal .cerrar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
   color: black;
   float: right;
   font-size: 30px;
@@ -149,20 +156,16 @@
   color: rgb(144, 112, 74);
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito {
-  display: flex;
-  flex-direction: column;
   list-style: none;
+  padding: 10px 0px 10px 0px;
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito {
   display: flex;
   flex-direction: column;
-  padding: 10px 110px 10px 110px;
-  gap: 10px;
+  gap: 20px;
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: rgb(255, 255, 255);
   min-height: 80px;
   box-sizing: border-box;
@@ -177,6 +180,7 @@
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .carrito__nombre-precio-cantidad {
   display: inline-block;
   margin: auto;
+  padding: 20px;
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .divCantidadInput {
   display: flex;
@@ -184,7 +188,7 @@
   padding: 0px 40px 0px 0px;
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .divCantidadInput .cantidadTexto {
-  padding: 15px 5px 0px 0px;
+  padding: 17px 5px 0px 0px;
 }
 #header .header__botones .carrito .modal .contenido-modal #listaCarrito #itemListaCarrito #contenidoCarrito .divCantidadInput .cantidadInput {
   text-align: center;
@@ -235,7 +239,7 @@
   animation: shake 4s infinite;
 }
 #header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total #btn-comprar:hover, #header .header__botones .carrito .modal .contenido-modal .contenedor__vaciar-total #btn-comprar:focus {
-  box-shadow: inset 2em 0 0 0 rgba(255, 255, 255, 0.392);
+  box-shadow: inset 7em 0 0 0 rgba(255, 255, 255, 0.392);
 }
 #header .header__botones .lupa button {
   border: none;
